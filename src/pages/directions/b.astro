@@ -1,0 +1,403 @@
+---
+import { Picture } from 'astro:assets';
+import Lab from '../../layouts/Lab.astro';
+import couple from '../../assets/plates/cropped/couple.png';
+import { day, event } from '../../data/event';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Lab title="Direction B · Persistence — Megan & Ryan" theme="dark">
+  <Fragment set:html={`<!--
+THESIS: A Dalí plain at 5:31 pm: names stand like stilt-legged figures on a low horizon and cast long shadows toward you. Refuses the centred-photo wedding hero.
+OWN-WORLD: Ink ground, bone type, Le Murmure (display) + Instrument Serif italic (voice), hairline horizon, eclipse-moon plate, long cast shadows, melt.
+STORY: Guests feel the strangeness, read the date, and accept.
+FIRST VIEWPORT: Couple plate as a small eclipse moon top-right; MEGAN & RYAN in Le Murmure spanning the width, standing on the horizon at ~75% height; lede, details, and Accept on the ground below.
+FORM: Surrealist plain, rank 2.
+-->`} />
+  <a class="skip" href="#day">Skip to the day</a>
+  <header class="nav">
+    <a href={`${base}/directions/`} class="mark">M — R</a>
+    <nav aria-label="Sections">
+      <a href="#story">Story</a><a href="#day">The Day</a><a href="#rite">The Rite</a><a href="#stay">Stay</a>
+    </nav>
+    <a href="#attend" class="reply">Reply</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="names">
+      <figure class="moon" data-develop>
+        <Picture
+          src={couple}
+          formats={['avif', 'webp']}
+          widths={[240, 400]}
+          sizes="(min-width: 760px) 200px, 120px"
+          alt="Megan and Ryan, a wet-plate portrait, cropped into a small circle like an eclipsed moon."
+          loading="eager"
+        />
+      </figure>
+
+      <div class="horizon">
+        <h1 id="names" class="names" data-melt>
+          <span class="nm" data-shadow={event.names[0]} style="--stretch:.25">{event.names[0]}</span>
+          <span class="amp">&amp;</span>
+          <span class="nm" data-shadow={event.names[1]} style="--stretch:.25">{event.names[1]}</span>
+        </h1>
+      </div>
+
+      <div class="ground">
+        <p class="lede">{event.lede}</p>
+        <p class="facts">
+          <span>A rite in the Hill Country</span>
+          <span>{event.date}</span>
+          <span>{event.place}</span>
+        </p>
+        <a class="btn" href="#attend">Accept the invitation <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section id="day" class="day" aria-labelledby="day-h">
+      <h2 id="day-h">Light moves; <i>so do we</i></h2>
+      <ol class="rows">
+        {
+          day.map((r) => (
+            <li class="row">
+              <svg class="clock" data-clock={r.hour} viewBox="0 0 100 100" aria-hidden="true">
+                <g filter="url(#clock-melt)">
+                  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1" />
+                  {Array.from({ length: 12 }, (_, i) => (
+                    <line x1="50" y1="7" x2="50" y2={i % 3 === 0 ? 13 : 10} stroke="currentColor" stroke-width="1" transform={`rotate(${i * 30} 50 50)`} />
+                  ))}
+                  <line class="hand-m" x1="50" y1="50" x2="50" y2="14" stroke="currentColor" stroke-width="1" />
+                  <line class="hand-h" x1="50" y1="50" x2="50" y2="26" stroke="currentColor" stroke-width="2.4" />
+                </g>
+              </svg>
+              <p class="time">
+                {r.time}
+                <small>{r.meridiem}</small>
+              </p>
+              <div class="what">
+                <h3>{r.title}</h3>
+                <p class="place">{r.place}</p>
+                <p class="line">{r.line}</p>
+              </div>
+              {r.address.length > 0 && (
+                <address>
+                  {r.address[0]}
+                  <br />
+                  {r.address[1]}
+                  {r.note && <span class="note">{r.note}</span>}
+                  <a href={r.map} rel="noopener">Open in Maps ↗</a>
+                </address>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </main>
+</Lab>
+
+<style>
+  :global(body) {
+    background: var(--color-ink);
+    color: var(--color-bone);
+    font-family: 'Brygada 1918', serif;
+    font-size: 20px;
+    line-height: 1.45;
+  }
+  .skip {
+    position: absolute;
+    left: -999px;
+  }
+  .skip:focus {
+    left: var(--gutter);
+    top: 8px;
+    z-index: 10;
+    background: var(--color-bone);
+    color: var(--color-ink);
+    padding: 8px 12px;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 18px var(--gutter);
+    font-family: 'Brygada 1918', serif;
+    font-size: 19px;
+    color: var(--color-mist);
+    background: color-mix(in srgb, var(--color-ink) 82%, transparent);
+    backdrop-filter: blur(6px);
+  }
+  .nav a {
+    text-decoration: none;
+  }
+  .nav nav {
+    display: flex;
+    gap: clamp(16px, 3vw, 40px);
+  }
+  .nav nav a:hover,
+  .nav .reply {
+    color: var(--color-bone);
+  }
+  .nav .reply {
+    justify-self: end;
+    font-style: italic;
+    border-bottom: 1px solid currentColor;
+  }
+
+  /* ---------- Hero: the plain ---------- */
+  .hero {
+    min-height: calc(100svh - 64px);
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    padding: 0 var(--gutter) clamp(32px, 4vw, 56px);
+    overflow: clip;
+  }
+  .moon {
+    justify-self: end;
+    align-self: start;
+    margin: clamp(16px, 3vw, 48px) clamp(0px, 8vw, 140px) 0 0;
+    width: clamp(112px, 13vw, 200px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px var(--color-ash),
+      0 0 120px 10px rgb(236 232 224 / 0.14);
+  }
+  .moon :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 63% 28%;
+    filter: brightness(0);
+  }
+  .moon.is-developed :global(img) {
+    filter: none;
+    animation: develop 3s var(--ease-rite);
+  }
+  @keyframes develop {
+    0% {
+      filter: brightness(0);
+    }
+    50% {
+      filter: brightness(1.8) contrast(0.5) blur(2px);
+    }
+    100% {
+      filter: none;
+    }
+  }
+
+  .horizon {
+    border-bottom: 1px solid var(--color-ash);
+  }
+  .names {
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-family: 'Le Murmure', serif;
+    font-weight: 400;
+    font-size: clamp(120px, 27vw, 420px);
+    line-height: 0.72;
+    letter-spacing: -0.01em;
+    filter: url(#melt);
+  }
+  .nm {
+    position: relative;
+    display: block;
+    translate: 0 0.085em;
+  }
+  /* Long shadow cast toward the viewer, below the horizon */
+  .nm::after {
+    content: attr(data-shadow);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-bone);
+    opacity: 0.09;
+    transform-origin: 0 92%;
+    transform: skewX(calc(-48deg * var(--stretch))) scaleY(calc(-0.42 * var(--stretch)));
+    -webkit-mask-image: linear-gradient(180deg, transparent 30%, #000 90%);
+    mask-image: linear-gradient(180deg, transparent 30%, #000 90%);
+    pointer-events: none;
+  }
+  .amp {
+    font-family: 'Brygada 1918', serif;
+    font-style: italic;
+    font-size: 0.42em;
+    line-height: 1;
+    color: var(--color-ash);
+    translate: 0 0.06em;
+  }
+
+  .ground {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: start;
+    padding-top: clamp(48px, 6vw, 88px);
+  }
+  .lede {
+    font-style: italic;
+    font-size: clamp(22px, 1.6vw + 10px, 32px);
+    line-height: 1.2;
+    max-width: 24ch;
+    text-wrap: pretty;
+  }
+  .facts {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ash);
+  }
+  .facts span:first-child {
+    color: var(--color-mist);
+  }
+  .btn {
+    padding: 18px 28px;
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-size: 21px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.4s var(--ease-rite);
+  }
+  .btn:hover {
+    background: var(--color-pure);
+  }
+
+  /* ---------- The Day ---------- */
+  .day {
+    padding: clamp(120px, 14vw, 220px) var(--gutter) clamp(96px, 10vw, 160px);
+  }
+  .day h2 {
+    font-family: 'Le Murmure', serif;
+    font-weight: 400;
+    font-size: clamp(64px, 11vw, 200px);
+    line-height: 0.82;
+  }
+  .day h2 i {
+    font-family: 'Brygada 1918', serif;
+    font-size: 0.5em;
+    color: var(--color-ash);
+  }
+  .rows {
+    margin-top: clamp(56px, 8vw, 120px);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: clamp(72px, 8vw, 120px) minmax(140px, 14vw) minmax(0, 1fr) minmax(220px, 22vw);
+    gap: clamp(20px, 3vw, 48px);
+    align-items: start;
+    padding: 40px 0 72px;
+    border-top: 1px solid rgb(142 139 133 / 0.5);
+  }
+  .clock {
+    width: 100%;
+    color: var(--color-mist);
+  }
+  .time {
+    font-family: 'Le Murmure', serif;
+    font-size: clamp(56px, 6vw, 104px);
+    line-height: 0.8;
+  }
+  .time small {
+    font-family: 'Brygada 1918', serif;
+    font-style: italic;
+    font-size: 0.3em;
+    color: var(--color-ash);
+    margin-left: 0.15em;
+  }
+  .what h3 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--color-ash);
+  }
+  .place {
+    font-size: clamp(32px, 2.6vw, 46px);
+    line-height: 1;
+    margin-top: 4px;
+  }
+  .line {
+    margin-top: 14px;
+    max-width: 36ch;
+    color: var(--color-mist);
+  }
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.7;
+    padding-top: 8px;
+  }
+  .note {
+    margin-top: 8px;
+    color: var(--color-ash);
+  }
+  address a {
+    margin-top: 14px;
+    align-self: flex-start;
+    text-underline-offset: 5px;
+  }
+
+  @media (max-width: 760px) {
+    .nav nav {
+      display: none;
+    }
+    .nav {
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero {
+      min-height: 100svh;
+    }
+    .names {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      font-size: clamp(120px, 44vw, 240px);
+      line-height: 0.74;
+    }
+    .nm:first-child {
+      grid-column: 1 / -1;
+      translate: none;
+    }
+    .nm:first-child::after {
+      content: none;
+    }
+    .amp {
+      grid-column: 1;
+      align-self: end;
+      font-size: 0.34em;
+    }
+    .nm:last-child {
+      grid-column: 2;
+      justify-self: end;
+    }
+    .ground {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding-top: 56px;
+    }
+    .btn {
+      justify-self: start;
+    }
+    .row {
+      grid-template-columns: 72px 1fr;
+    }
+    .what,
+    address {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

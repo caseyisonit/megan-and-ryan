@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+# raw sources with watermark + internal research refs
+research/*-src.jpg
+research/refs/
+assets-src/
+.dev.vars*

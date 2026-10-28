@@ -1,0 +1,12 @@
+name = "megan-and-ryan-rsvp"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = true
+preview_urls = false
+
+[vars]
+ALLOWED_ORIGINS = "https://caseyisonit.github.io,http://127.0.0.1:4321,http://localhost:4321"
+# NOTION_GUESTS_DATA_SOURCE_ID, NOTION_RSVP_TOKEN, TURNSTILE_SECRET are secrets (wrangler secret put)
+
+[observability]
+enabled = true

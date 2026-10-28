@@ -1,0 +1,80 @@
+---
+import Lab from '../../layouts/Lab.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const dirs = [
+  { k: 'a', name: 'Collodion', line: 'A tintype studio’s cabinet card. IM Fell letterpress, poured plate edges, names inverted across the plate.' },
+  { k: 'b', name: 'Persistence', line: 'A Dalí plain at 5:31 pm. Le Murmure names stand on the horizon and cast long shadows; the couple rise as an eclipse.' },
+  { k: 'c', name: 'The Order', line: 'A secret society’s certificate on one strict axis. Bodoni, an eye that opens, Roman hours, a wax-seal reply.' },
+  { k: 'd', name: 'The Order at dusk', line: 'Your mix (A1): C’s axis, eye and Roman hours on B’s ink; Le Murmure names melt and invert across the eye.' },
+];
+---
+
+<Lab title="Directions — Megan & Ryan">
+  <main>
+    <h1>Three directions</h1>
+    <ol>
+      {
+        dirs.map((d) => (
+          <li>
+            <a href={`${base}/directions/${d.k}/`}>
+              <span class="k">{d.k.toUpperCase()}</span>
+              <span class="n">{d.name}</span>
+            </a>
+            <p>{d.line}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</Lab>
+
+<style>
+  :global(body) {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: 'IM Fell English', serif;
+    font-size: 20px;
+  }
+  main {
+    padding: clamp(32px, 6vw, 96px) var(--gutter);
+    max-width: 1100px;
+  }
+  h1 {
+    font-family: 'IM Fell Double Pica', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1;
+  }
+  ol {
+    margin-top: 48px;
+    border-top: 1px solid var(--color-ink);
+  }
+  li {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-mist);
+  }
+  a {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    text-decoration: none;
+  }
+  .k {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 28px;
+    width: 1.4em;
+  }
+  .n {
+    font-family: 'IM Fell Double Pica', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1;
+  }
+  a:hover .n {
+    font-style: italic;
+  }
+  p {
+    margin: 10px 0 0 calc(1.4em * 28 / 20 + 24px);
+    max-width: 60ch;
+    color: var(--color-smoke);
+  }
+</style>

@@ -1,0 +1,239 @@
+---
+import { Picture } from 'astro:assets';
+import Site from '../layouts/Site.astro';
+import RsvpForm from '../components/RsvpForm.astro';
+import couple from '../assets/plates/cropped/couple.png';
+import megan from '../assets/plates/cropped/megan.png';
+import ryan from '../assets/plates/cropped/ryan.png';
+import { t, tp, SHOW_DRAFTS } from '../lib/copy';
+import { venues, stays } from '../data/facts';
+
+const roman = ['II', 'V', 'X'];
+const spoken = ['Two o’clock in the afternoon', 'Five o’clock, as the sun goes', 'Ten o’clock at night'];
+const day = [1, 2, 3].map((n, i) => ({
+  n,
+  roman: roman[i],
+  spoken: spoken[i],
+  map: n === 1 ? venues.chapel : n === 2 ? venues.reception : '',
+}));
+const expect = ['attire', 'weather', 'phones', 'small'];
+const faqs = [1, 2, 3, 4, 5, 6, 7];
+
+// Salt ring: deterministic scatter of grains around a circle.
+let seed = 12;
+const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const grains = Array.from({ length: 260 }, () => {
+  const a = rand() * Math.PI * 2;
+  const r = 150 + (rand() - 0.5) * 22 + (rand() < 0.08 ? (rand() - 0.5) * 60 : 0);
+  return { x: 180 + Math.cos(a) * r, y: 180 + Math.sin(a) * r, s: 0.6 + rand() * 1.6, o: 0.45 + rand() * 0.55 };
+});
+---
+
+<Site title="Megan & Ryan — A rite in the Hill Country" description={tp('hero.lede') ?? ''}>
+  <Fragment set:html={`<!--
+THESIS: The Order at dusk. A secret society's certificate on one strict axis, on ink; eyelids part onto the couple and their names, stacked Megan-over / Ryan-under, invert where they cross the eye.
+OWN-WORLD: Ink ground, bone type, double-rule frame. Imbue (display) / Libre Caslon Text (voice) / Hanken Grotesk (small UI). Almond eye, Roman hours, salt ring.
+STORY: Admitted → names and rite → their story → the hours → the salt bowl → what to expect → where to stay → questions → reply.
+FIRST VIEWPORT: Eye spans the stage; names stacked and inverted across it; rite line, date, lede, Accept button on the axis.
+FORM: Direction D (A1 approved).
+-->`} />
+  {
+    SHOW_DRAFTS && (
+      <p class="preview-bar">
+        Design preview. <span class="gap-key">Dashed text</span> is waiting on answers in Notion.
+      </p>
+    )
+  }
+  <a class="skip" href="#attend">Skip to the reply form</a>
+  <div class="frame">
+    <header class="nav">
+      <nav class="nav-l" aria-label="Sections">
+        <a href="#story">Story</a><a href="#day">The Day</a><a href="#rite">The Rite</a>
+      </nav>
+      <a href="#top" class="mark">M &amp; R</a>
+      <nav class="nav-r" aria-label="More sections">
+        <a href="#stay">Stay</a><a href="#questions">Questions</a><a href="#attend" class="reply">Reply</a>
+      </nav>
+      <button type="button" class="menu-btn" data-menu-toggle aria-expanded="false" aria-controls="menu">Menu</button>
+    </header>
+    <div id="menu" class="menu" hidden>
+      <nav aria-label="Menu">
+        <a href="#story">Story</a><a href="#day">The Day</a><a href="#rite">The Rite</a><a href="#expect">What to expect</a><a href="#stay">Stay</a><a href="#questions">Questions</a><a href="#attend">Reply</a>
+      </nav>
+    </div>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="names">
+        <div class="stage">
+          <span class="eye">
+            <Picture
+              src={couple}
+              formats={['avif', 'webp']}
+              widths={[480, 800, 1200, 1500]}
+              sizes="(min-width: 1160px) 1120px, 92vw"
+              alt="Megan and Ryan, a wet-plate portrait seen through an eye-shaped opening; she holds white calla lilies, he stands close in a black suit."
+              loading="eager"
+              fetchpriority="high"
+            />
+            <span class="lid lid-top" data-lid aria-hidden="true"></span>
+            <span class="lid lid-bottom" data-lid aria-hidden="true"></span>
+          </span>
+          <h1 id="names" class="names">
+            <span class="l" data-drip>Megan</span>
+            <span class="visually-hidden"> &amp; </span>
+            <span class="r" data-drip>Ryan</span>
+          </h1>
+        </div>
+        <p class="rite-line" set:html={t('hero.rite')} />
+        <p class="date" set:html={t('hero.date')} />
+        <p class="lede" set:html={t('hero.lede')} />
+        <a class="btn" href="#attend">
+          <span class="btn-main"><Fragment set:html={t('hero.cta')} /> <span aria-hidden="true">→</span></span>
+          <span class="btn-sub" set:html={t('hero.cta.sub')} />
+        </a>
+      </section>
+
+      <!-- Story -->
+      <section id="story" class="section story" aria-labelledby="story-h">
+        <h2 id="story-h" class="h2" set:html={t('story.title')} />
+        <div class="story-grid">
+          <figure class="plate plate-1">
+            <Picture src={megan} formats={['avif', 'webp']} widths={[320, 520, 760]} sizes="(min-width: 900px) 24vw, 44vw" alt="Megan, a wet-plate portrait: dark hair pulled back, white collar, black jacket, looking straight at the camera." />
+            <figcaption set:html={t('story.plate1')} />
+          </figure>
+          <div class="story-text">
+            {t('story.quote') && <blockquote class="quote" set:html={t('story.quote')} />}
+            {t('story.body') && <p set:html={t('story.body')} />}
+          </div>
+          <figure class="plate plate-2">
+            <Picture src={ryan} formats={['avif', 'webp']} widths={[320, 520, 760]} sizes="(min-width: 900px) 24vw, 44vw" alt="Ryan, a wet-plate portrait: shaved head, open white collar, black suit, a level gaze." />
+            <figcaption set:html={t('story.plate2')} />
+          </figure>
+        </div>
+      </section>
+
+      <!-- The Day -->
+      <section id="day" class="section day" aria-labelledby="day-h">
+        <h2 id="day-h" class="h2" set:html={t('day.title')} />
+        <p class="kicker-date">Saturday, 12 December 2026</p>
+        <ol class="rows">
+          {
+            day.map((d) => (
+              <li>
+                <div class="when">
+                  <p class="roman" aria-hidden="true">{d.roman}</p>
+                  <p class="clock" set:html={t(`day.${d.n}.time`)} />
+                  <p class="spoken">{d.spoken}</p>
+                </div>
+                <div class="what">
+                  <h3 class="label-sm" set:html={t(`day.${d.n}.title`)} />
+                  <p class="place" set:html={t(`day.${d.n}.place`)} />
+                  <p class="line" set:html={t(`day.${d.n}.line`)} />
+                  {d.n === 1 && t('day.1.arrive') && <p class="line" set:html={t('day.1.arrive')} />}
+                  {d.n === 1 && t('day.1.between') && <p class="line" set:html={t('day.1.between')} />}
+                  {d.map && (
+                    <address>
+                      <span set:html={t(`day.${d.n}.address`)} />
+                      {t(`day.${d.n}.note`) && <span class="note" set:html={t(`day.${d.n}.note`)} />}
+                      <a href={d.map} rel="noopener">
+                        Open in Maps <span aria-hidden="true">↗</span>
+                      </a>
+                    </address>
+                  )}
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <!-- The Rite -->
+      <section id="rite" class="section rite" aria-labelledby="rite-h">
+        <div class="salt">
+          <svg class="ring" viewBox="0 0 360 360" aria-hidden="true">
+            {grains.map((g) => <rect x={g.x.toFixed(1)} y={g.y.toFixed(1)} width={g.s.toFixed(2)} height={g.s.toFixed(2)} fill="currentColor" opacity={g.o.toFixed(2)} transform={`rotate(${(g.x * 7) % 90} ${g.x.toFixed(1)} ${g.y.toFixed(1)})`} />)}
+          </svg>
+          <h2 id="rite-h" class="h2 salt-title" set:html={t('rite.title')} />
+        </div>
+        {t('rite.body') && <p class="prose" set:html={t('rite.body')} />}
+      </section>
+
+      <!-- What to expect -->
+      <section id="expect" class="section expect" aria-labelledby="expect-h">
+        <h2 id="expect-h" class="h2" set:html={t('expect.title')} />
+        <dl class="expect-grid">
+          {
+            expect.map(
+              (k) =>
+                t(`expect.${k}.body`) && (
+                  <div>
+                    <dt set:html={t(`expect.${k}.title`)} />
+                    <dd set:html={t(`expect.${k}.body`)} />
+                  </div>
+                ),
+            )
+          }
+        </dl>
+      </section>
+
+      <!-- Stay -->
+      <section id="stay" class="section stay" aria-labelledby="stay-h">
+        <h2 id="stay-h" class="h2" set:html={t('stay.title')} />
+        {t('stay.intro') && <p class="sub" set:html={t('stay.intro')} />}
+        <ul class="rows stays">
+          {
+            stays.map((s) => (
+              <li>
+                <p class="area">{s.area}</p>
+                <div class="what">
+                  <h3 class="place" set:html={t(`stay.${s.n}.name`)} />
+                  <p class="line" set:html={t(`stay.${s.n}.body`)} />
+                  <a href={s.url} rel="noopener" class="ext">
+                    Visit their site <span aria-hidden="true">↗</span>
+                    <span class="visually-hidden">: {tp(`stay.${s.n}.name`)}</span>
+                  </a>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="sub" set:html={t('stay.drive')} />
+      </section>
+
+      <!-- Questions -->
+      <section id="questions" class="section faq" aria-labelledby="faq-h">
+        <h2 id="faq-h" class="h2" set:html={t('faq.title')} />
+        <div class="faq-list">
+          {
+            faqs.map(
+              (n) =>
+                t(`faq.${n}.a`) && (
+                  <details>
+                    <summary>
+                      <span set:html={t(`faq.${n}.q`)} />
+                      <span class="pm" aria-hidden="true" />
+                    </summary>
+                    <p set:html={t(`faq.${n}.a`)} />
+                  </details>
+                ),
+            )
+          }
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section id="attend" class="section attend" aria-labelledby="attend-h">
+        <h2 id="attend-h" class="h2 big" set:html={t('rsvp.title')} />
+        <p class="sub" set:html={t('rsvp.deadline')} />
+        <RsvpForm />
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p class="foot-names">Megan <i>&amp;</i> Ryan</p>
+      <p class="label-sm" set:html={t('footer.line')} />
+      <p class="foot-links"><a href="#attend">Reply</a><a href="#top">Back to the top</a></p>
+    </footer>
+  </div>
+</Site>
