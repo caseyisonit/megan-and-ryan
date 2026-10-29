@@ -1,9 +1,13 @@
 name: Deploy site
 
+# Push to main, the "Publish now" button (Run workflow), or every 15 minutes.
+# Scheduled runs only rebuild when Notion has newly Approved copy.
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
 
 permissions:
   contents: read
@@ -23,8 +27,19 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
+      - name: Promote Approved copy to Live
+        id: sync
+        run: node scripts/sync-copy.mjs
+        env:
+          NOTION_COPY_TOKEN: ${{ secrets.NOTION_COPY_TOKEN }}
+          NOTION_COPY_DATA_SOURCE_ID: ${{ secrets.NOTION_COPY_DATA_SOURCE_ID }}
+      - name: Nothing new to publish
+        if: github.event_name == 'schedule' && steps.sync.outputs.promoted == '0'
+        run: echo "No newly approved copy; skipping deploy."
+      - if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
+        run: npm ci
       - name: Build
+        if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
         run: npm run build
         env:
           SITE_URL: ${{ vars.SITE_URL }}
@@ -34,12 +49,16 @@ jobs:
           PREVIEW_DRAFTS: ${{ vars.PREVIEW_DRAFTS }}
           NOTION_COPY_TOKEN: ${{ secrets.NOTION_COPY_TOKEN }}
           NOTION_COPY_DATA_SOURCE_ID: ${{ secrets.NOTION_COPY_DATA_SOURCE_ID }}
-      - uses: actions/upload-pages-artifact@v3
+      - if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+    outputs:
+      publish: ${{ github.event_name != 'schedule' || steps.sync.outputs.promoted != '0' }}
 
   deploy:
     needs: build
+    if: needs.build.outputs.publish == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
