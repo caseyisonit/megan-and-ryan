@@ -18,9 +18,9 @@ One responsive page, a digital save the date, and a printed 5×7 invitation that
 Not a wedding template. A small, private rite with a cult-on-purpose tone: ritual, numbered plates, witnesses, a salt bowl. The couple's own wet-plate collodion portraits are the visual source.
 
 ## Operating Context
-- Ceremony: Sat Dec 12, 2026, 2–5 pm, The Lincoln Chapel, 2100 County Road 176, Georgetown, TX 78628 (Leander border; GPS must say "County Road"). Indoor, 30 seats.
-- Reception: 5–10 pm, La Villa Rosa Estate, 20601 Oak Canyon St, Leander, TX 78641 (~25 min drive). Sunset 5:31 pm.
-- Salt bowl ritual at the reception. Dress code: black, white, or both.
+- Ceremony: Sat Dec 12, 2026, guests arrive 3:30–3:50, ceremony 4:05–4:45 pm, The Lincoln Chapel, 2100 County Road 176, Georgetown, TX 78628 (Leander border; GPS must say "County Road"). Indoor, 30 seats.
+- Reception: guests arrive 5:30, dinner + salt bowl 6:00, guests depart by 9:45 pm, La Villa Rosa Estate, 20601 Oak Canyon St, Leander, TX 78641 (~25 min drive). Sunset 5:31 pm.
+- Salt bowl ritual at the reception (salt provided; guests bring a small totem and may speak). Dress code: black. Plus-ones only if named. Pool + roaming horse and goat at the reception.
 - Copy lives in a Notion Site Copy database; RSVPs go to a Notion Guests database through a Cloudflare Worker with Turnstile.
 
 ## Capabilities and Constraints
@@ -30,7 +30,7 @@ Not a wedding template. A small, private rite with a cult-on-purpose tone: ritua
 - Open: custom domain (C7); several content gaps answered by the couple in Notion.
 
 ## Brand Commitments
-- Palette: off-black `#131211` + off-white `#ECE8E0` base; pure `#000`/`#FFF` only as accents. No color.
+- Dress code changed to black only (couple, Oct 31). Palette: off-black `#131211` + off-white `#ECE8E0` base; pure `#000`/`#FFF` only as accents. No color.
 - Mood: minimalist, surreal (Dalí), timeless, cult on purpose. Never campy, no Halloween kitsch.
 - Voice: hushed, ritual, wry, a little uncanny; ceremonial language with warmth underneath.
 - Phrases to keep: "A rite in the Hill Country", "witnesses", "Plate I —" captions, "Light moves; so do we", "Dress in the dark and the pale", "Questions, answered quietly", "will you stand with us?", "Joyfully accept / Regretfully decline".

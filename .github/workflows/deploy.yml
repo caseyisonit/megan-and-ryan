@@ -1,7 +1,7 @@
 name: Deploy site
 
 # Push to main, the "Publish now" button (Run workflow), or every 15 minutes.
-# Scheduled runs only rebuild when Notion has newly Approved copy.
+# Scheduled runs only rebuild when the Notion Site Copy changed since the last deploy.
 on:
   push:
     branches: [main]
@@ -27,34 +27,35 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - name: Promote Approved copy to Live
-        id: sync
-        run: node scripts/sync-copy.mjs
+      - name: Check Notion copy for changes
+        id: copy
+        run: node scripts/check-copy.mjs
         env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
           NOTION_COPY_TOKEN: ${{ secrets.NOTION_COPY_TOKEN }}
           NOTION_COPY_DATA_SOURCE_ID: ${{ secrets.NOTION_COPY_DATA_SOURCE_ID }}
       - name: Nothing new to publish
-        if: github.event_name == 'schedule' && steps.sync.outputs.promoted == '0'
-        run: echo "No newly approved copy; skipping deploy."
-      - if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
+        if: github.event_name == 'schedule' && steps.copy.outputs.changed != 'true'
+        run: echo "No copy changes; skipping deploy."
+      - if: github.event_name != 'schedule' || steps.copy.outputs.changed == 'true'
         run: npm ci
       - name: Build
-        if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
+        if: github.event_name != 'schedule' || steps.copy.outputs.changed == 'true'
         run: npm run build
         env:
           SITE_URL: ${{ vars.SITE_URL }}
           BASE_PATH: ${{ vars.BASE_PATH }}
           RSVP_ENDPOINT: ${{ vars.RSVP_ENDPOINT }}
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
-          PREVIEW_DRAFTS: ${{ vars.PREVIEW_DRAFTS }}
           NOTION_COPY_TOKEN: ${{ secrets.NOTION_COPY_TOKEN }}
           NOTION_COPY_DATA_SOURCE_ID: ${{ secrets.NOTION_COPY_DATA_SOURCE_ID }}
-      - if: github.event_name != 'schedule' || steps.sync.outputs.promoted != '0'
+      - if: github.event_name != 'schedule' || steps.copy.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
     outputs:
-      publish: ${{ github.event_name != 'schedule' || steps.sync.outputs.promoted != '0' }}
+      publish: ${{ github.event_name != 'schedule' || steps.copy.outputs.changed == 'true' }}
 
   deploy:
     needs: build

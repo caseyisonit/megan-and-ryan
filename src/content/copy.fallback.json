@@ -1,95 +1,527 @@
 {
   "_readme": "Seed drafts for the Notion Site Copy database. The site reads Notion 'Live copy' at build; this file is used only when a key is missing or Notion is unreachable. Values containing ⟨…⟩ are never published.",
   "rows": [
-    { "key": "hero.rite", "section": "Hero", "what": "Line under the names", "copy": "A rite in the Hill Country" },
-    { "key": "hero.names", "section": "Hero", "what": "Names in the hero", "copy": "Megan & Ryan" },
-    { "key": "hero.date", "section": "Hero", "what": "Date and place under the names", "copy": "Saturday, 12 December 2026 · Leander, Texas" },
-    { "key": "hero.lede", "section": "Hero", "what": "Short welcome paragraph", "copy": "Two artists, one long December afternoon, and a small circle of witnesses. You are invited to stand with them." },
-    { "key": "hero.cta", "section": "Hero", "what": "Main button", "copy": "Accept the invitation" },
-    { "key": "hero.cta.sub", "section": "Hero", "what": "Small line under the button", "copy": "Reply by 22 November" },
-    { "key": "hero.caption", "section": "Hero", "what": "Caption for the couple photo", "copy": "Plate III — The two of them, and the lilies" },
-
-    { "key": "story.title", "section": "Story", "what": "Story heading", "copy": "Two of a kind, and no kind at all" },
-    { "key": "story.quote", "section": "Story", "what": "One line in your own words (pull quote)", "copy": "⟨One line in your own words⟩" },
-    { "key": "story.body", "section": "Story", "what": "How you met", "copy": "They met in college and became best friends, the kind who trade records, sketchbooks, and unsolicited opinions. Somewhere between the music and the art, the thing they shared most turned out to be a refusal to be anyone but themselves. Their first date fell on or around Halloween, which explains a great deal. Now, ⟨X⟩ years later, they would like to make it official. In black and white, naturally." },
-    { "key": "story.plate1", "section": "Story", "what": "Caption for Megan's portrait", "copy": "Plate I — Megan" },
-    { "key": "story.plate2", "section": "Story", "what": "Caption for Ryan's portrait", "copy": "Plate II — Ryan" },
-
-    { "key": "day.title", "section": "The Day", "what": "Schedule heading", "copy": "Light moves; so do we" },
-    { "key": "day.1.title", "section": "The Day", "what": "First event name", "copy": "The Ceremony" },
-    { "key": "day.1.time", "section": "The Day", "what": "Ceremony time", "copy": "2:00 pm" },
-    { "key": "day.1.place", "section": "The Day", "what": "Ceremony venue", "copy": "The Lincoln Chapel" },
-    { "key": "day.1.line", "section": "The Day", "what": "Ceremony description", "copy": "Find a seat; the rite begins at two. Thirty benches, a small circle of witnesses." },
-    { "key": "day.1.arrive", "section": "The Day", "what": "When guests should arrive", "copy": "Doors open at ⟨1:30⟩." },
-    { "key": "day.1.between", "section": "The Day", "what": "What happens between 2 and 5 pm", "copy": "⟨Ceremony length, cocktail hour, photos?⟩" },
-    { "key": "day.1.address", "section": "The Day", "what": "Ceremony address", "copy": "2100 County Road 176, Georgetown, TX 78628" },
-    { "key": "day.1.note", "section": "The Day", "what": "GPS note", "copy": "Tell your GPS “County Road,” not “Country Road.”" },
-    { "key": "day.2.title", "section": "The Day", "what": "Second event name", "copy": "The Reception" },
-    { "key": "day.2.time", "section": "The Day", "what": "Reception time", "copy": "5:00 pm" },
-    { "key": "day.2.place", "section": "The Day", "what": "Reception venue", "copy": "La Villa Rosa Estate" },
-    { "key": "day.2.line", "section": "The Day", "what": "Reception description", "copy": "Supper, toasts, music, and the salt bowl. The sun sets at 5:31; bring a layer." },
-    { "key": "day.2.address", "section": "The Day", "what": "Reception address", "copy": "20601 Oak Canyon St, Leander, TX 78641" },
-    { "key": "day.2.note", "section": "The Day", "what": "Drive between venues", "copy": "About 25 minutes from the chapel." },
-    { "key": "day.3.title", "section": "The Day", "what": "Third event name", "copy": "Release" },
-    { "key": "day.3.time", "section": "The Day", "what": "End time", "copy": "10:00 pm" },
-    { "key": "day.3.place", "section": "The Day", "what": "End of night line", "copy": "The night is yours again" },
-    { "key": "day.3.line", "section": "The Day", "what": "End of night description", "copy": "Go gently. Take the long way home." },
-
-    { "key": "rite.title", "section": "The Rite", "what": "Salt bowl heading", "copy": "An offering, an inheritance" },
-    { "key": "rite.body", "section": "The Rite", "what": "Salt bowl explanation", "copy": "Salt preserves. For as long as people have made promises, it has sealed them. At the reception, a bowl will be waiting. Add a pinch of salt ⟨provided, or bring your own?⟩, and with it a piece of wisdom for the marriage: a line, a warning, a recipe, a blessing. The bowl goes home with them and keeps." },
-
-    { "key": "expect.title", "section": "What to Expect", "what": "Section heading", "copy": "What to expect" },
-    { "key": "expect.attire.title", "section": "What to Expect", "what": "Dress code heading", "copy": "Dress in the dark and the pale" },
-    { "key": "expect.attire.body", "section": "What to Expect", "what": "Dress code (pick: 'remembered in' or 'buried in')", "copy": "Black, white, or both. No color, no pattern. Wear what you would want to be remembered in." },
-    { "key": "expect.weather.title", "section": "What to Expect", "what": "Weather heading", "copy": "December in the hills" },
-    { "key": "expect.weather.body", "section": "What to Expect", "what": "Weather note", "copy": "Evenings fall into the low 40s. Bring a layer you won't mind being photographed in." },
-    { "key": "expect.phones.title", "section": "What to Expect", "what": "Phones heading", "copy": "Phones away during the rite" },
-    { "key": "expect.phones.body", "section": "What to Expect", "what": "Unplugged ceremony note", "copy": "⟨Unplugged ceremony? Who is the photographer?⟩" },
-    { "key": "expect.small.title", "section": "What to Expect", "what": "Guest count heading", "copy": "Small by design" },
-    { "key": "expect.small.body", "section": "What to Expect", "what": "Guest count / plus-ones", "copy": "About thirty witnesses. ⟨Plus-ones only if named on the invitation?⟩" },
-
-    { "key": "stay.title", "section": "Stay", "what": "Lodging heading", "copy": "Where to rest your head" },
-    { "key": "stay.intro", "section": "Stay", "what": "Lodging intro", "copy": "No room block ⟨confirm⟩. A few places we'd send a friend." },
-    { "key": "stay.1.name", "section": "Stay", "what": "Hotel 1", "copy": "Sheraton Austin Georgetown" },
-    { "key": "stay.1.body", "section": "Stay", "what": "Hotel 1 note", "copy": "On the San Gabriel River at Rivery Park, near the historic square. Closest to the chapel." },
-    { "key": "stay.2.name", "section": "Stay", "what": "Hotel 2", "copy": "San Gabriel House" },
-    { "key": "stay.2.body", "section": "Stay", "what": "Hotel 2 note", "copy": "A historic bed and breakfast in Georgetown, across from Southwestern University." },
-    { "key": "stay.3.name", "section": "Stay", "what": "Hotel 3", "copy": "Hyatt Place Austin/Cedar Park" },
-    { "key": "stay.3.body", "section": "Stay", "what": "Hotel 3 note", "copy": "Practical, and between the two venues." },
-    { "key": "stay.4.name", "section": "Stay", "what": "Hotel 4", "copy": "Lone Star Court" },
-    { "key": "stay.4.body", "section": "Stay", "what": "Hotel 4 note", "copy": "A motor-court hotel at The Domain in north Austin." },
-    { "key": "stay.5.name", "section": "Stay", "what": "Hotel 5", "copy": "Hotel Viata" },
-    { "key": "stay.5.body", "section": "Stay", "what": "Hotel 5 note", "copy": "Quiet and old-world in west Austin (formerly Hotel Granduca)." },
-    { "key": "stay.drive", "section": "Stay", "what": "Note for guests driving home", "copy": "Driving back to San Marcos that night? It's about an hour south on I-35." },
-
-    { "key": "faq.title", "section": "Questions", "what": "FAQ heading", "copy": "Questions, answered quietly" },
-    { "key": "faq.1.q", "section": "Questions", "what": "Question 1", "copy": "When should I arrive?" },
-    { "key": "faq.1.a", "section": "Questions", "what": "Answer 1", "copy": "By ⟨1:30⟩. The chapel seats thirty and the rite begins at two." },
-    { "key": "faq.2.q", "section": "Questions", "what": "Question 2", "copy": "Are children welcome?" },
-    { "key": "faq.2.a", "section": "Questions", "what": "Answer 2", "copy": "⟨Children policy⟩" },
-    { "key": "faq.3.q", "section": "Questions", "what": "Question 3", "copy": "What about gifts?" },
-    { "key": "faq.3.a", "section": "Questions", "what": "Answer 3", "copy": "Your presence is the gift. If you insist, a note for the bowl." },
-    { "key": "faq.4.q", "section": "Questions", "what": "Question 4", "copy": "Where do I park?" },
-    { "key": "faq.4.a", "section": "Questions", "what": "Answer 4", "copy": "The chapel has twenty guest spaces inside the gate, with accessible spaces closer to the door. ⟨Reception parking⟩" },
-    { "key": "faq.5.q", "section": "Questions", "what": "Question 5", "copy": "Is it accessible?" },
-    { "key": "faq.5.a", "section": "Questions", "what": "Answer 5", "copy": "The chapel has a gentle-slope entry and accessible restrooms about fifty feet away. ⟨Reception access⟩ Tell us what you need and we'll make it work." },
-    { "key": "faq.6.q", "section": "Questions", "what": "Question 6", "copy": "How do I get between venues?" },
-    { "key": "faq.6.a", "section": "Questions", "what": "Answer 6", "copy": "By car, about 25 minutes. ⟨Shuttle?⟩" },
-    { "key": "faq.7.q", "section": "Questions", "what": "Question 7", "copy": "Who do I ask?" },
-    { "key": "faq.7.a", "section": "Questions", "what": "Answer 7", "copy": "Write to ⟨email⟩." },
-
-    { "key": "rsvp.title", "section": "RSVP", "what": "RSVP heading", "copy": "Will you stand with us?" },
-    { "key": "rsvp.deadline", "section": "RSVP", "what": "Deadline line", "copy": "Reply by the twenty-second of November." },
-    { "key": "rsvp.accept", "section": "RSVP", "what": "Accept option", "copy": "Joyfully accept" },
-    { "key": "rsvp.decline", "section": "RSVP", "what": "Decline option", "copy": "Regretfully decline" },
-    { "key": "rsvp.done.accept", "section": "RSVP", "what": "Message after accepting", "copy": "It is done. Your name is in the book. We'll see you at the chapel." },
-    { "key": "rsvp.done.decline", "section": "RSVP", "what": "Message after declining", "copy": "You'll be missed. We'll keep a pinch of salt in your name." },
-    { "key": "rsvp.error", "section": "RSVP", "what": "Message if the form fails", "copy": "Something went wrong and your reply didn't reach us. Try again, or write to ⟨email⟩." },
-
-    { "key": "footer.line", "section": "Footer", "what": "Footer line", "copy": "Megan Reddick & Ryan Erwin · XII · XII · MMXXVI" },
-
-    { "key": "std.text", "section": "Save the Date", "what": "Save the date card (review only)", "copy": "Save the date · Megan Reddick & Ryan Erwin · 12 · 12 · 26 · Leander, Texas · A rite in the Hill Country · Kindly reply by November 22" },
-    { "key": "invite.front", "section": "Invitation", "what": "Printed invitation front (review only)", "copy": "Together with a small circle of witnesses / Megan Reddick / & / Ryan Erwin / request your presence at the rite of their marriage / Saturday, the twelfth of December / two thousand twenty-six / at two o'clock in the afternoon / The Lincoln Chapel · Leander, Texas / Reception to follow at La Villa Rosa Estate / Dress in black and white / Kindly reply by the twenty-second of November" },
-    { "key": "invite.back", "section": "Invitation", "what": "Printed invitation back caption (review only)", "copy": "Plate III — M & R, MMXXVI" }
+    {
+      "key": "hero.rite",
+      "section": "Hero",
+      "what": "Line under the names",
+      "copy": "A rite in the Hill Country"
+    },
+    {
+      "key": "hero.names",
+      "section": "Hero",
+      "what": "Names in the hero",
+      "copy": "Megan & Ryan"
+    },
+    {
+      "key": "hero.date",
+      "section": "Hero",
+      "what": "Date and place under the names",
+      "copy": "Saturday, 12 December 2026 · Leander, Texas"
+    },
+    {
+      "key": "hero.lede",
+      "section": "Hero",
+      "what": "Short welcome paragraph",
+      "copy": "Two artists, one long December afternoon, and a small circle of witnesses. You are invited to stand with them."
+    },
+    {
+      "key": "hero.cta",
+      "section": "Hero",
+      "what": "Main button",
+      "copy": "Accept the invitation"
+    },
+    {
+      "key": "hero.cta.sub",
+      "section": "Hero",
+      "what": "Small line under the button",
+      "copy": "Reply by 22 November"
+    },
+    {
+      "key": "hero.caption",
+      "section": "Hero",
+      "what": "Caption for the couple photo",
+      "copy": "Plate III — The two of them, and the lilies"
+    },
+    {
+      "key": "story.title",
+      "section": "Story",
+      "what": "Story heading",
+      "copy": "Two of a kind, and no kind at all"
+    },
+    {
+      "key": "story.quote",
+      "section": "Story",
+      "what": "One line in your own words (pull quote)",
+      "copy": "Established in 2009, we grew our love for seventeen years."
+    },
+    {
+      "key": "story.body",
+      "section": "Story",
+      "what": "How you met",
+      "copy": "They met in college and became best friends, the kind who trade records, sketchbooks, and unsolicited opinions. Somewhere between the music and the art, the thing they shared most turned out to be a refusal to be anyone but themselves. The first kiss came at The Showdown Saloon in San Marcos in 2009, and they have been together ever since. Seventeen years later, they are gathering the people they love to make it official and join two families. Dressed in black, naturally."
+    },
+    {
+      "key": "story.plate1",
+      "section": "Story",
+      "what": "Caption for Megan's portrait",
+      "copy": "Plate I — Megan"
+    },
+    {
+      "key": "story.plate2",
+      "section": "Story",
+      "what": "Caption for Ryan's portrait",
+      "copy": "Plate II — Ryan"
+    },
+    {
+      "key": "day.title",
+      "section": "The Day",
+      "what": "Schedule heading",
+      "copy": "Light moves; so do we"
+    },
+    {
+      "key": "day.1.title",
+      "section": "The Day",
+      "what": "First event name",
+      "copy": "The Ceremony"
+    },
+    {
+      "key": "day.1.time",
+      "section": "The Day",
+      "what": "Ceremony time",
+      "copy": "4:00 pm"
+    },
+    {
+      "key": "day.1.place",
+      "section": "The Day",
+      "what": "Ceremony venue",
+      "copy": "The Lincoln Chapel"
+    },
+    {
+      "key": "day.1.line",
+      "section": "The Day",
+      "what": "Ceremony description",
+      "copy": "Find a seat; the rite begins at four. A small chapel, and a small circle of witnesses."
+    },
+    {
+      "key": "day.1.arrive",
+      "section": "The Day",
+      "what": "When guests should arrive",
+      "copy": "Please arrive between 3:30 and 3:50. We’ll be taking photos as you come in."
+    },
+    {
+      "key": "day.1.between",
+      "section": "The Day",
+      "what": "What happens between 2 and 5 pm",
+      "copy": "Everyone is seated by 4:00. The ceremony runs about forty minutes, and we leave the chapel together by 5:00."
+    },
+    {
+      "key": "day.1.address",
+      "section": "The Day",
+      "what": "Ceremony address",
+      "copy": "2100 County Road 176, Georgetown, TX 78628"
+    },
+    {
+      "key": "day.1.note",
+      "section": "The Day",
+      "what": "GPS note",
+      "copy": "Tell your GPS “County Road,” not “Country Road.”"
+    },
+    {
+      "key": "day.2.title",
+      "section": "The Day",
+      "what": "Second event name",
+      "copy": "The Reception"
+    },
+    {
+      "key": "day.2.time",
+      "section": "The Day",
+      "what": "Reception time",
+      "copy": "5:30 pm"
+    },
+    {
+      "key": "day.2.place",
+      "section": "The Day",
+      "what": "Reception venue",
+      "copy": "La Villa Rosa Estate"
+    },
+    {
+      "key": "day.2.line",
+      "section": "The Day",
+      "what": "Reception description",
+      "copy": "A buffet supper and the salt bowl at 6:00, cake at 6:45, then music, cocktails, and a party until 9:30. The sun sets at 5:31; bring a layer."
+    },
+    {
+      "key": "day.2.address",
+      "section": "The Day",
+      "what": "Reception address",
+      "copy": "20601 Oak Canyon St, Leander, TX 78641"
+    },
+    {
+      "key": "day.2.note",
+      "section": "The Day",
+      "what": "Drive between venues",
+      "copy": "About 25 minutes from the chapel. No shuttle; free parking on site and on the street."
+    },
+    {
+      "key": "day.3.title",
+      "section": "The Day",
+      "what": "Third event name",
+      "copy": "Release"
+    },
+    {
+      "key": "day.3.time",
+      "section": "The Day",
+      "what": "End time",
+      "copy": "9:30 pm"
+    },
+    {
+      "key": "day.3.place",
+      "section": "The Day",
+      "what": "End of night line",
+      "copy": "The night is yours again"
+    },
+    {
+      "key": "day.3.line",
+      "section": "The Day",
+      "what": "End of night description",
+      "copy": "Guests depart by 9:45. Go gently. Take the long way home."
+    },
+    {
+      "key": "rite.title",
+      "section": "The Rite",
+      "what": "Salt bowl heading",
+      "copy": "An offering, an inheritance"
+    },
+    {
+      "key": "rite.body",
+      "section": "The Rite",
+      "what": "Salt bowl explanation",
+      "copy": "Salt preserves. For as long as people have made promises, it has sealed them. At the reception, a bowl of salt will be waiting. Bring a small totem that speaks to you to add to it, and with it a piece of wisdom for the marriage: a blessing, a toast, a memory, a warning, a recipe. Once everyone has a plate, we’ll gather, and you’re invited to say yours aloud. The bowl stays out all night; add to it whenever you’re moved. It goes home with them and keeps."
+    },
+    {
+      "key": "expect.title",
+      "section": "What to Expect",
+      "what": "Section heading",
+      "copy": "What to expect"
+    },
+    {
+      "key": "expect.attire.title",
+      "section": "What to Expect",
+      "what": "Dress code heading",
+      "copy": "Dress in the dark"
+    },
+    {
+      "key": "expect.attire.body",
+      "section": "What to Expect",
+      "what": "Dress code (pick: 'remembered in' or 'buried in')",
+      "copy": "Come in your most fabulous black ensemble."
+    },
+    {
+      "key": "expect.weather.title",
+      "section": "What to Expect",
+      "what": "Weather heading",
+      "copy": "December in the hills"
+    },
+    {
+      "key": "expect.weather.body",
+      "section": "What to Expect",
+      "what": "Weather note",
+      "copy": "Evenings fall into the low 40s, and much of the day is spent outdoors. Bring layers for comfort, ideally ones you won’t mind being photographed in."
+    },
+    {
+      "key": "expect.phones.title",
+      "section": "What to Expect",
+      "what": "Phones heading",
+      "copy": "Phones silenced during the rite"
+    },
+    {
+      "key": "expect.phones.body",
+      "section": "What to Expect",
+      "what": "Unplugged ceremony note",
+      "copy": "We wish for everyone to be fully present during the ceremony. While we appreciate the gesture to document this day, we’ve got it taken care of with a wonderfully talented photographer."
+    },
+    {
+      "key": "expect.small.title",
+      "section": "What to Expect",
+      "what": "Guest count heading",
+      "copy": "Small by design"
+    },
+    {
+      "key": "expect.small.body",
+      "section": "What to Expect",
+      "what": "Guest count / plus-ones",
+      "copy": "About thirty witnesses. Plus-ones only if named on the invitation."
+    },
+    {
+      "key": "stay.title",
+      "section": "Stay",
+      "what": "Lodging heading",
+      "copy": "Where to rest your head"
+    },
+    {
+      "key": "stay.intro",
+      "section": "Stay",
+      "what": "Lodging intro",
+      "copy": "There are no room blocks; book wherever suits you. Some guests are staying at the Hilton Garden Inn in Cedar Park."
+    },
+    {
+      "key": "stay.6.name",
+      "section": "Stay",
+      "what": "Hotel 6",
+      "copy": "Hilton Garden Inn Cedar Park Austin"
+    },
+    {
+      "key": "stay.6.body",
+      "section": "Stay",
+      "what": "Hotel 6 note",
+      "copy": "Where some of the other guests are staying."
+    },
+    {
+      "key": "stay.1.name",
+      "section": "Stay",
+      "what": "Hotel 1",
+      "copy": "Sheraton Austin Georgetown"
+    },
+    {
+      "key": "stay.1.body",
+      "section": "Stay",
+      "what": "Hotel 1 note",
+      "copy": "On the San Gabriel River at Rivery Park, near the historic square. Closest to the chapel."
+    },
+    {
+      "key": "stay.2.name",
+      "section": "Stay",
+      "what": "Hotel 2",
+      "copy": "San Gabriel House"
+    },
+    {
+      "key": "stay.2.body",
+      "section": "Stay",
+      "what": "Hotel 2 note",
+      "copy": "A historic bed and breakfast in Georgetown, across from Southwestern University."
+    },
+    {
+      "key": "stay.3.name",
+      "section": "Stay",
+      "what": "Hotel 3",
+      "copy": "Hyatt Place Austin/Cedar Park"
+    },
+    {
+      "key": "stay.3.body",
+      "section": "Stay",
+      "what": "Hotel 3 note",
+      "copy": "Practical, and between the two venues."
+    },
+    {
+      "key": "stay.4.name",
+      "section": "Stay",
+      "what": "Hotel 4",
+      "copy": "Lone Star Court"
+    },
+    {
+      "key": "stay.4.body",
+      "section": "Stay",
+      "what": "Hotel 4 note",
+      "copy": "A motor-court hotel at The Domain in north Austin."
+    },
+    {
+      "key": "stay.5.name",
+      "section": "Stay",
+      "what": "Hotel 5",
+      "copy": "Hotel Viata"
+    },
+    {
+      "key": "stay.5.body",
+      "section": "Stay",
+      "what": "Hotel 5 note",
+      "copy": "Quiet and old-world in west Austin (formerly Hotel Granduca)."
+    },
+    {
+      "key": "stay.drive",
+      "section": "Stay",
+      "what": "Note for guests driving home",
+      "copy": "Driving back to San Marcos that night? It's about an hour south on I-35."
+    },
+    {
+      "key": "faq.title",
+      "section": "Questions",
+      "what": "FAQ heading",
+      "copy": "Questions, answered quietly"
+    },
+    {
+      "key": "faq.1.q",
+      "section": "Questions",
+      "what": "Question 1",
+      "copy": "When should I arrive?"
+    },
+    {
+      "key": "faq.1.a",
+      "section": "Questions",
+      "what": "Answer 1",
+      "copy": "Between 3:30 and 3:50. We’ll be taking photos as guests arrive, and everyone is seated by 4:00."
+    },
+    {
+      "key": "faq.2.q",
+      "section": "Questions",
+      "what": "Question 2",
+      "copy": "Can I bring a plus-one?"
+    },
+    {
+      "key": "faq.2.a",
+      "section": "Questions",
+      "what": "Answer 2",
+      "copy": "This is a small, intimate wedding, and the venues are small too: plus-ones only if they’re named on your invitation."
+    },
+    {
+      "key": "faq.3.q",
+      "section": "Questions",
+      "what": "Question 3",
+      "copy": "What about gifts?"
+    },
+    {
+      "key": "faq.3.a",
+      "section": "Questions",
+      "what": "Answer 3",
+      "copy": "Your presence is the gift. If you insist, a note for the bowl."
+    },
+    {
+      "key": "faq.4.q",
+      "section": "Questions",
+      "what": "Question 4",
+      "copy": "Where do I park?"
+    },
+    {
+      "key": "faq.4.a",
+      "section": "Questions",
+      "what": "Answer 4",
+      "copy": "The chapel has twenty guest spaces inside the gate, with accessible spaces closer to the door. La Villa Rosa has free parking on site and on the street."
+    },
+    {
+      "key": "faq.5.q",
+      "section": "Questions",
+      "what": "Question 5",
+      "copy": "Is it accessible?"
+    },
+    {
+      "key": "faq.5.a",
+      "section": "Questions",
+      "what": "Answer 5",
+      "copy": "The chapel has a gentle-slope entry and accessible restrooms about fifty feet away. Not every area of La Villa Rosa is wheelchair accessible; tell us what you need and we’ll make it work."
+    },
+    {
+      "key": "faq.6.q",
+      "section": "Questions",
+      "what": "Question 6",
+      "copy": "How do I get between venues?"
+    },
+    {
+      "key": "faq.6.a",
+      "section": "Questions",
+      "what": "Answer 6",
+      "copy": "By car, about 25 minutes. There’s no shuttle, so plan to drive or share a ride."
+    },
+    {
+      "key": "faq.7.q",
+      "section": "Questions",
+      "what": "Question 7",
+      "copy": "Who do I ask?"
+    },
+    {
+      "key": "faq.7.a",
+      "section": "Questions",
+      "what": "Answer 7",
+      "copy": "Casey Eickhoff, the Maid of Honor, can answer anything in our stead. Before the day, write to caseyisonit@gmail.com with “Meg + Ryan wedding” in the subject. On the day itself, email goes unchecked; Casey will share a number for texting with you directly."
+    },
+    {
+      "key": "faq.8.q",
+      "section": "Questions",
+      "what": "Question 8",
+      "copy": "Is there a bar?"
+    },
+    {
+      "key": "faq.8.a",
+      "section": "Questions",
+      "what": "Answer 8",
+      "copy": "Drinks are provided, and there’s a pour-your-own bar. If you have a drink of choice, you’re welcome to bring it."
+    },
+    {
+      "key": "faq.9.q",
+      "section": "Questions",
+      "what": "Question 9",
+      "copy": "Anything else we should know?"
+    },
+    {
+      "key": "faq.9.a",
+      "section": "Questions",
+      "what": "Answer 9",
+      "copy": "There’s a pool at La Villa Rosa with no lifeguard on duty, and a white horse and a small goat roam the property. Please be kind to the animals."
+    },
+    {
+      "key": "rsvp.title",
+      "section": "RSVP",
+      "what": "RSVP heading",
+      "copy": "Will you stand with us?"
+    },
+    {
+      "key": "rsvp.deadline",
+      "section": "RSVP",
+      "what": "Deadline line",
+      "copy": "Reply by the twenty-second of November."
+    },
+    {
+      "key": "rsvp.accept",
+      "section": "RSVP",
+      "what": "Accept option",
+      "copy": "Joyfully accept"
+    },
+    {
+      "key": "rsvp.decline",
+      "section": "RSVP",
+      "what": "Decline option",
+      "copy": "Regretfully decline"
+    },
+    {
+      "key": "rsvp.done.accept",
+      "section": "RSVP",
+      "what": "Message after accepting",
+      "copy": "It is done. Your name is in the book. We'll see you at the chapel."
+    },
+    {
+      "key": "rsvp.done.decline",
+      "section": "RSVP",
+      "what": "Message after declining",
+      "copy": "You'll be missed. We'll keep a pinch of salt in your name."
+    },
+    {
+      "key": "rsvp.error",
+      "section": "RSVP",
+      "what": "Message if the form fails",
+      "copy": "Something went wrong and your reply didn’t reach us. Try again, or write to caseyisonit@gmail.com."
+    },
+    {
+      "key": "footer.line",
+      "section": "Footer",
+      "what": "Footer line",
+      "copy": "Megan Reddick & Ryan Erwin · XII · XII · MMXXVI"
+    },
+    {
+      "key": "std.text",
+      "section": "Save the Date",
+      "what": "Save the date card (review only)",
+      "copy": "Save the date · Megan Reddick & Ryan Erwin · 12 · 12 · 26 · Leander, Texas · A rite in the Hill Country · Kindly reply by November 22"
+    },
+    {
+      "key": "invite.front",
+      "section": "Invitation",
+      "what": "Printed invitation front (review only)",
+      "copy": "Together with a small circle of witnesses / Megan Reddick / & / Ryan Erwin / request your presence at the rite of their marriage / Saturday, the twelfth of December / two thousand twenty-six / at four o'clock in the afternoon / The Lincoln Chapel · Leander, Texas / Reception to follow at La Villa Rosa Estate / Dress in black / Kindly reply by the twenty-second of November"
+    },
+    {
+      "key": "invite.back",
+      "section": "Invitation",
+      "what": "Printed invitation back caption (review only)",
+      "copy": "Plate III — M & R, MMXXVI"
+    }
   ]
 }

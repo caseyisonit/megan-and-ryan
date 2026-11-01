@@ -1,12 +1,12 @@
-// Site copy by key. Source order: Notion "Live copy" (build time) → copy.fallback.json.
-// Values with an open ⟨bracket⟩ never render in production; in dev they render marked as drafts.
+// Site copy by key. Source order: Notion "Working copy" (build time) → copy.fallback.json.
+// Status is the couple's review checklist; only "Remove" (or an emptied Working copy) changes the site.
+// Text with an open ⟨bracket⟩ is hidden on the site and marked in dev.
 import fallback from '../content/copy.fallback.json';
 
 type Rich = { plain_text: string; href: string | null; annotations: { bold: boolean; italic: boolean } };
 
 const OPEN = /⟨[^⟩]*⟩/;
-// Drafts render (marked) in dev and in preview builds for the couple's review; never at launch.
-export const SHOW_DRAFTS = import.meta.env.DEV || (import.meta.env.PREVIEW_DRAFTS ?? process.env.PREVIEW_DRAFTS) === '1';
+const DEV = import.meta.env.DEV;
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const safeHref = (h: string) => (/^(https?:|mailto:|tel:)/i.test(h) ? h : null);
@@ -24,13 +24,14 @@ function richToHtml(parts: Rich[]): string {
     .join('');
 }
 
-async function loadNotion(): Promise<Map<string, string>> {
+async function loadNotion() {
   const token = import.meta.env.NOTION_COPY_TOKEN ?? import.meta.env.NOTION_SITE_TOKEN ?? process.env.NOTION_COPY_TOKEN;
   const ds = import.meta.env.NOTION_COPY_DATA_SOURCE_ID ?? process.env.NOTION_COPY_DATA_SOURCE_ID;
-  const live = new Map<string, string>();
+  const copy = new Map<string, string>();
+  const hidden = new Set<string>();
   if (!token || !ds) {
     console.warn('[copy] Notion not configured; using copy.fallback.json');
-    return live;
+    return { copy, hidden };
   }
   let cursor: string | undefined;
   do {
@@ -44,21 +45,29 @@ async function loadNotion(): Promise<Map<string, string>> {
     const json = await res.json();
     for (const page of json.results) {
       const key = page.properties.Key.title.map((t: Rich) => t.plain_text).join('');
-      const parts: Rich[] = page.properties['Live copy']?.rich_text ?? [];
+      if (!key) continue;
+      const parts: Rich[] = page.properties['Working copy']?.rich_text ?? [];
       const plain = parts.map((p) => p.plain_text).join('');
-      if (key && plain.trim() && !OPEN.test(plain)) live.set(key, richToHtml(parts));
+      const removed = page.properties.Status?.select?.name === 'Remove' || !plain.trim();
+      if (removed || (OPEN.test(plain) && !DEV)) hidden.add(key);
+      else copy.set(key, OPEN.test(plain) ? markGaps(richToHtml(parts)) : richToHtml(parts));
     }
     cursor = json.has_more ? json.next_cursor : undefined;
   } while (cursor);
-  return live;
+  return { copy, hidden };
 }
 
-const live = await loadNotion();
+function markGaps(html: string) {
+  return html.replace(/⟨([^⟩]*)⟩/g, '<mark class="gap" title="Waiting on Megan &amp; Ryan">⟨$1⟩</mark>');
+}
+
+const notion = await loadNotion();
 const seed = new Map(fallback.rows.map((r) => [r.key, r.copy]));
 
-/** HTML for a copy key, or null when it shouldn't render. */
+/** HTML for a copy key, or null when it shouldn't render (removed, unanswered, or missing). */
 export function t(key: string): string | null {
-  const fromNotion = live.get(key);
+  if (notion.hidden.has(key)) return null;
+  const fromNotion = notion.copy.get(key);
   if (fromNotion) return fromNotion;
   const draft = seed.get(key);
   if (draft === undefined) {
@@ -66,7 +75,7 @@ export function t(key: string): string | null {
     return null;
   }
   if (!OPEN.test(draft)) return esc(draft);
-  return SHOW_DRAFTS ? esc(draft).replace(/⟨([^⟩]*)⟩/g, '<mark class="gap" title="Waiting on Megan &amp; Ryan">⟨$1⟩</mark>') : null;
+  return DEV ? markGaps(esc(draft)) : null;
 }
 
 /** Plain text (for attributes, alt text, meta). */

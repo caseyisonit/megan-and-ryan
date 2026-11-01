@@ -12,3 +12,4 @@ research/*-src.jpg
 research/refs/
 assets-src/
 .dev.vars*
+public/copy-hash.txt

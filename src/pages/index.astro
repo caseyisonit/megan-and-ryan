@@ -2,22 +2,37 @@
 import { Picture } from 'astro:assets';
 import Site from '../layouts/Site.astro';
 import RsvpForm from '../components/RsvpForm.astro';
-import couple from '../assets/plates/cropped/couple.png';
+import couple from '../assets/plates/couple-edited.jpg';
 import megan from '../assets/plates/cropped/megan.png';
 import ryan from '../assets/plates/cropped/ryan.png';
-import { t, tp, SHOW_DRAFTS } from '../lib/copy';
+import { t, tp } from '../lib/copy';
 import { venues, stays } from '../data/facts';
 
-const roman = ['II', 'V', 'X'];
-const spoken = ['Two o’clock in the afternoon', 'Five o’clock, as the sun goes', 'Ten o’clock at night'];
-const day = [1, 2, 3].map((n, i) => ({
-  n,
-  roman: roman[i],
-  spoken: spoken[i],
-  map: n === 1 ? venues.chapel : n === 2 ? venues.reception : '',
-}));
+// Roman hour and spoken time are derived from the editable time copy (e.g. "4:00 pm").
+const ROMAN = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+const WORDS = ['twelve', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'];
+function when(key: string) {
+  const m = (tp(key) ?? '').match(/(\d{1,2}):(\d{2})\s*(am|pm)?/i);
+  if (!m) return { roman: '', spoken: '' };
+  const h = Number(m[1]) % 12;
+  const min = Number(m[2]);
+  const pm = (m[3] ?? 'pm').toLowerCase() === 'pm';
+  const h24 = h + (pm ? 12 : 0);
+  const when = !pm ? 'in the morning' : h24 < 17 ? 'in the afternoon' : h24 < 18 ? 'as the sun goes' : h24 < 21 ? 'in the evening' : 'at night';
+  const phrase = min === 0 ? `${WORDS[h]} o’clock` : min === 30 ? `half past ${WORDS[h]}` : `${WORDS[h]} ${min}`;
+  const spoken = `${phrase} ${when}`;
+  return { roman: ROMAN[h], spoken: spoken[0].toUpperCase() + spoken.slice(1) };
+}
+const day = [1, 2, 3]
+  .filter((n) => t(`day.${n}.title`) || t(`day.${n}.place`))
+  .map((n) => ({
+    n,
+    ...when(`day.${n}.time`),
+    map: n === 1 ? venues.chapel : n === 2 ? venues.reception : '',
+  }));
+const shownStays = stays.filter((s) => t(`stay.${s.n}.name`));
 const expect = ['attire', 'weather', 'phones', 'small'];
-const faqs = [1, 2, 3, 4, 5, 6, 7];
+const faqs = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter((n) => t(`faq.${n}.q`) && t(`faq.${n}.a`));
 
 // Salt ring: deterministic scatter of grains around a circle.
 let seed = 12;
@@ -37,13 +52,6 @@ STORY: Admitted → names and rite → their story → the hours → the salt bo
 FIRST VIEWPORT: Eye spans the stage; names stacked and inverted across it; rite line, date, lede, Accept button on the axis.
 FORM: Direction D (A1 approved).
 -->`} />
-  {
-    SHOW_DRAFTS && (
-      <p class="preview-bar">
-        Design preview. <span class="gap-key">Dashed text</span> is waiting on answers in Notion.
-      </p>
-    )
-  }
   <a class="skip" href="#attend">Skip to the reply form</a>
   <div class="frame">
     <header class="nav">
@@ -70,7 +78,7 @@ FORM: Direction D (A1 approved).
             <Picture
               src={couple}
               formats={['avif', 'webp']}
-              widths={[480, 800, 1200, 1500]}
+              widths={[480, 800, 1200, 1600, 2170]}
               sizes="(min-width: 1160px) 1120px, 92vw"
               alt="Megan and Ryan, a wet-plate portrait seen through an eye-shaped opening; she holds white calla lilies, he stands close in a black suit."
               loading="eager"
@@ -132,7 +140,7 @@ FORM: Direction D (A1 approved).
                   <p class="line" set:html={t(`day.${d.n}.line`)} />
                   {d.n === 1 && t('day.1.arrive') && <p class="line" set:html={t('day.1.arrive')} />}
                   {d.n === 1 && t('day.1.between') && <p class="line" set:html={t('day.1.between')} />}
-                  {d.map && (
+                  {d.map && t(`day.${d.n}.address`) && (
                     <address>
                       <span set:html={t(`day.${d.n}.address`)} />
                       {t(`day.${d.n}.note`) && <span class="note" set:html={t(`day.${d.n}.note`)} />}
@@ -166,7 +174,7 @@ FORM: Direction D (A1 approved).
           {
             expect.map(
               (k) =>
-                t(`expect.${k}.body`) && (
+                t(`expect.${k}.title`) && t(`expect.${k}.body`) && (
                   <div>
                     <dt set:html={t(`expect.${k}.title`)} />
                     <dd set:html={t(`expect.${k}.body`)} />
@@ -183,7 +191,7 @@ FORM: Direction D (A1 approved).
         {t('stay.intro') && <p class="sub" set:html={t('stay.intro')} />}
         <ul class="rows stays">
           {
-            stays.map((s) => (
+            shownStays.map((s) => (
               <li>
                 <p class="area">{s.area}</p>
                 <div class="what">
@@ -208,7 +216,7 @@ FORM: Direction D (A1 approved).
           {
             faqs.map(
               (n) =>
-                t(`faq.${n}.a`) && (
+                (
                   <details>
                     <summary>
                       <span set:html={t(`faq.${n}.q`)} />
