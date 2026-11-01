@@ -535,7 +535,6 @@ address a,
   align-self: center;
 }
 .stays .place {
-  margin-top: 0;
   font-size: clamp(30px, 2.8vw, 44px);
 }
 
