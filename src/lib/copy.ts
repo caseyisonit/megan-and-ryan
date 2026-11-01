@@ -78,6 +78,11 @@ export function t(key: string): string | null {
   return DEV ? markGaps(esc(draft)) : null;
 }
 
+/** Whether a key exists in Notion or the seed file (no warning). */
+export function has(key: string): boolean {
+  return notion.copy.has(key) || notion.hidden.has(key) || seed.has(key);
+}
+
 /** Plain text (for attributes, alt text, meta). */
 export function tp(key: string): string | null {
   const h = t(key);

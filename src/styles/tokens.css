@@ -16,8 +16,8 @@
   --color-pure: #fff;
 
   --font-mono: 'Geist Mono', ui-monospace, monospace;
-  --font-display: 'Imbue Variable', serif;
-  --font-voice: 'Libre Caslon Text', serif;
+  --font-display: 'Boldonse', sans-serif;
+  --font-voice: 'Hanken Grotesk', sans-serif;
   --font-ui: 'Hanken Grotesk', sans-serif;
   /* Exploration-only (directions A–C) */
   --font-a-display: 'Cormorant Garamond', serif;

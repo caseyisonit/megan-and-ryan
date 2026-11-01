@@ -5,7 +5,7 @@ import RsvpForm from '../components/RsvpForm.astro';
 import couple from '../assets/plates/couple-edited.jpg';
 import megan from '../assets/plates/cropped/megan.png';
 import ryan from '../assets/plates/cropped/ryan.png';
-import { t, tp } from '../lib/copy';
+import { t, tp, has } from '../lib/copy';
 import { venues, stays } from '../data/facts';
 
 // Roman hour and spoken time are derived from the editable time copy (e.g. "4:00 pm").
@@ -28,6 +28,15 @@ const day = [1, 2, 3]
   .map((n) => ({
     n,
     ...when(`day.${n}.time`),
+    // Schedule call-outs: one Notion row each (day.N.sched.1, .2, …). "time · detail" splits into two parts.
+    sched: Array.from({ length: 10 }, (_, i) => `day.${n}.sched.${i + 1}`)
+      .filter(has)
+      .map((k) => t(k))
+      .filter((h): h is string => !!h)
+      .map((h) => {
+        const m = h.match(/^(.+?)\s*·\s*(.+)$/);
+        return m ? { time: m[1], text: m[2] } : { time: '', text: h };
+      }),
     map: n === 1 ? venues.chapel : n === 2 ? venues.reception : '',
   }));
 const shownStays = stays.filter((s) => t(`stay.${s.n}.name`));
@@ -47,7 +56,7 @@ const grains = Array.from({ length: 260 }, () => {
 <Site title="Megan & Ryan — A rite in the Hill Country" description={tp('hero.lede') ?? ''}>
   <Fragment set:html={`<!--
 THESIS: The Order at dusk. A secret society's certificate on one strict axis, on ink; eyelids part onto the couple and their names, stacked Megan-over / Ryan-under, invert where they cross the eye.
-OWN-WORLD: Ink ground, bone type, double-rule frame. Imbue (display) / Libre Caslon Text (voice) / Hanken Grotesk (small UI). Almond eye, Roman hours, salt ring.
+OWN-WORLD: Ink ground, bone type, double-rule frame. Boldonse (display) / Hanken Grotesk (text and UI). Almond eye, Roman hours, salt ring.
 STORY: Admitted → names and rite → their story → the hours → the salt bowl → what to expect → where to stay → questions → reply.
 FIRST VIEWPORT: Eye spans the stage; names stacked and inverted across it; rite line, date, lede, Accept button on the axis.
 FORM: Direction D (A1 approved).
@@ -137,19 +146,27 @@ FORM: Direction D (A1 approved).
                 <div class="what">
                   <h3 class="label-sm" set:html={t(`day.${d.n}.title`)} />
                   <p class="place" set:html={t(`day.${d.n}.place`)} />
-                  <p class="line" set:html={t(`day.${d.n}.line`)} />
-                  {d.n === 1 && t('day.1.arrive') && <p class="line" set:html={t('day.1.arrive')} />}
-                  {d.n === 1 && t('day.1.between') && <p class="line" set:html={t('day.1.between')} />}
-                  {d.map && t(`day.${d.n}.address`) && (
-                    <address>
-                      <span set:html={t(`day.${d.n}.address`)} />
-                      {t(`day.${d.n}.note`) && <span class="note" set:html={t(`day.${d.n}.note`)} />}
-                      <a href={d.map} rel="noopener">
-                        Open in Maps <span aria-hidden="true">↗</span>
-                      </a>
-                    </address>
-                  )}
+                  {t(`day.${d.n}.about`) && <p class="line" set:html={t(`day.${d.n}.about`)} />}
                 </div>
+                {d.sched.length > 0 && (
+                  <dl class="sched">
+                    {d.sched.map((x) => (
+                      <div>
+                        <dt class="sched-time" set:html={x.time} />
+                        <dd set:html={x.text} />
+                      </div>
+                    ))}
+                  </dl>
+                )}
+                {d.map && t(`day.${d.n}.address`) && (
+                  <address>
+                    <span set:html={t(`day.${d.n}.address`)} />
+                    {t(`day.${d.n}.note`) && <span class="note" set:html={t(`day.${d.n}.note`)} />}
+                    <a href={d.map} rel="noopener">
+                      Open in Maps <span aria-hidden="true">↗</span>
+                    </a>
+                  </address>
+                )}
               </li>
             ))
           }
@@ -194,14 +211,12 @@ FORM: Direction D (A1 approved).
             shownStays.map((s) => (
               <li>
                 <p class="area">{s.area}</p>
-                <div class="what">
-                  <h3 class="place" set:html={t(`stay.${s.n}.name`)} />
-                  <p class="line" set:html={t(`stay.${s.n}.body`)} />
-                  <a href={s.url} rel="noopener" class="ext">
-                    Visit their site <span aria-hidden="true">↗</span>
-                    <span class="visually-hidden">: {tp(`stay.${s.n}.name`)}</span>
-                  </a>
-                </div>
+                <h3 class="place" set:html={t(`stay.${s.n}.name`)} />
+                <p class="line" set:html={t(`stay.${s.n}.body`)} />
+                <a href={s.url} rel="noopener" class="ext">
+                  Visit their site <span aria-hidden="true">↗</span>
+                  <span class="visually-hidden">: {tp(`stay.${s.n}.name`)}</span>
+                </a>
               </li>
             ))
           }

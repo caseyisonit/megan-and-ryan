@@ -47,7 +47,7 @@
       "key": "story.title",
       "section": "Story",
       "what": "Story heading",
-      "copy": "Two of a kind, and no kind at all"
+      "copy": "Two of a kind, and a perfect kind of harmony"
     },
     {
       "key": "story.quote",
@@ -98,22 +98,34 @@
       "copy": "The Lincoln Chapel"
     },
     {
-      "key": "day.1.line",
+      "key": "day.1.about",
       "section": "The Day",
       "what": "Ceremony description",
       "copy": "Find a seat; the rite begins at four. A small chapel, and a small circle of witnesses."
     },
     {
-      "key": "day.1.arrive",
+      "key": "day.1.sched.1",
       "section": "The Day",
-      "what": "When guests should arrive",
-      "copy": "Please arrive between 3:30 and 3:50. We’ll be taking photos as you come in."
+      "what": "Ceremony schedule item 1 (time · detail)",
+      "copy": "3:30–3:50 pm · Guests arrive; we’ll take photos as you come in"
     },
     {
-      "key": "day.1.between",
+      "key": "day.1.sched.2",
       "section": "The Day",
-      "what": "What happens between 2 and 5 pm",
-      "copy": "Everyone is seated by 4:00. The ceremony runs about forty minutes, and we leave the chapel together by 5:00."
+      "what": "Ceremony schedule item 2 (time · detail)",
+      "copy": "4:00 pm · Everyone seated"
+    },
+    {
+      "key": "day.1.sched.3",
+      "section": "The Day",
+      "what": "Ceremony schedule item 3 (time · detail)",
+      "copy": "4:05 pm · The ceremony, about forty minutes"
+    },
+    {
+      "key": "day.1.sched.4",
+      "section": "The Day",
+      "what": "Ceremony schedule item 4 (time · detail)",
+      "copy": "4:45 pm · We leave the chapel together"
     },
     {
       "key": "day.1.address",
@@ -146,10 +158,40 @@
       "copy": "La Villa Rosa Estate"
     },
     {
-      "key": "day.2.line",
+      "key": "day.2.about",
       "section": "The Day",
       "what": "Reception description",
-      "copy": "A buffet supper and the salt bowl at 6:00, cake at 6:45, then music, cocktails, and a party until 9:30. The sun sets at 5:31; bring a layer."
+      "copy": "A buffet supper, a pour-your-own bar, cake, music, and the salt bowl. The sun sets at 5:31; bring a layer."
+    },
+    {
+      "key": "day.2.sched.1",
+      "section": "The Day",
+      "what": "Reception schedule item 1 (time · detail)",
+      "copy": "5:30 pm · Guests arrive"
+    },
+    {
+      "key": "day.2.sched.2",
+      "section": "The Day",
+      "what": "Reception schedule item 2 (time · detail)",
+      "copy": "6:00 pm · Buffet dinner and the salt bowl"
+    },
+    {
+      "key": "day.2.sched.3",
+      "section": "The Day",
+      "what": "Reception schedule item 3 (time · detail)",
+      "copy": "6:45 pm · Cake cutting"
+    },
+    {
+      "key": "day.2.sched.4",
+      "section": "The Day",
+      "what": "Reception schedule item 4 (time · detail)",
+      "copy": "7:00 pm · Music and cocktails"
+    },
+    {
+      "key": "day.2.sched.5",
+      "section": "The Day",
+      "what": "Reception schedule item 5 (time · detail)",
+      "copy": "8:00 pm · The party"
     },
     {
       "key": "day.2.address",
@@ -182,10 +224,16 @@
       "copy": "The night is yours again"
     },
     {
-      "key": "day.3.line",
+      "key": "day.3.about",
       "section": "The Day",
       "what": "End of night description",
-      "copy": "Guests depart by 9:45. Go gently. Take the long way home."
+      "copy": "Go gently. Take the long way home."
+    },
+    {
+      "key": "day.3.sched.1",
+      "section": "The Day",
+      "what": "End of night schedule item 1 (time · detail)",
+      "copy": "9:45 pm · Guests depart"
     },
     {
       "key": "rite.title",
@@ -365,7 +413,7 @@
       "key": "faq.2.q",
       "section": "Questions",
       "what": "Question 2",
-      "copy": "Can I bring a plus-one?"
+      "copy": "Can I bring a plus-one or my children?"
     },
     {
       "key": "faq.2.a",
