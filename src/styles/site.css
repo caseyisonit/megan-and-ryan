@@ -245,7 +245,8 @@ mark.gap {
 }
 .names .l {
   align-self: flex-start;
-  padding-left: 2cqw;
+  /* Cancel the M's side bearing so its ink starts at the eye's left tip. */
+  margin-left: -0.024em;
 }
 .names .r {
   align-self: flex-end;
