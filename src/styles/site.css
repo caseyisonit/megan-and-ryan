@@ -58,7 +58,7 @@ mark.gap {
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(30px, 4.2vw, 68px);
-  line-height: 1.12;
+  line-height: 1.52;
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
@@ -176,7 +176,7 @@ mark.gap {
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(24px, 6vw, 40px);
-  line-height: 1.3;
+  line-height: 1.45;
   text-decoration: none;
   letter-spacing: -0.01em;
 }
@@ -254,12 +254,12 @@ mark.gap {
   padding-right: 1cqw;
 }
 .rite-line {
-  margin-top: clamp(40px, 4.5vw, 72px);
+  margin-top: clamp(64px, 7vw, 112px);
   font-family: var(--f-display);
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(20px, 1.6vw + 10px, 34px);
-  line-height: 1.15;
+  line-height: 1.4;
   letter-spacing: -0.01em;
 }
 .date {
@@ -382,8 +382,8 @@ mark.gap {
   font-family: var(--f-display);
   font-weight: 400;
   font-variation-settings: normal;
-  font-size: clamp(18px, 1.5vw, 26px);
-  line-height: 1.25;
+  font-size: clamp(20px, 1.6vw + 10px, 34px);
+  line-height: 1.4;
   letter-spacing: -0.01em;
 }
 .story-text p {
@@ -441,7 +441,7 @@ mark.gap {
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(20px, 1.8vw, 30px);
-  line-height: 1.15;
+  line-height: 1.4;
   letter-spacing: -0.01em;
 }
 .line {
@@ -529,7 +529,7 @@ address a,
   text-align: center;
 }
 .stays .place {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .stays .line {
   margin-inline: auto;
@@ -561,8 +561,7 @@ address a,
   }
 }
 .salt-title {
-  max-width: 9.5em;
-  font-size: clamp(24px, 2.6vw, 38px);
+  max-width: 100%;
 }
 
 /* Expect */
@@ -585,7 +584,7 @@ address a,
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(17px, 1.3vw, 22px);
-  line-height: 1.3;
+  line-height: 1.45;
   letter-spacing: -0.01em;
 }
 .expect-grid dd {
@@ -617,7 +616,7 @@ address a,
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(17px, 1.3vw, 22px);
-  line-height: 1.3;
+  line-height: 1.45;
   letter-spacing: -0.01em;
 }
 .faq-list summary::-webkit-details-marker {
@@ -674,6 +673,35 @@ details[open] .pm::after {
   flex-direction: column;
   gap: 32px;
 }
+.early {
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+}
+.early summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 0;
+  cursor: pointer;
+  font-family: var(--f-ui);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mist);
+}
+.early summary::-webkit-details-marker {
+  display: none;
+}
+.early[open] summary {
+  color: var(--color-bone);
+}
+.early > :not(summary) {
+  margin-bottom: 28px;
+}
+
 .accept-only[hidden] {
   display: none;
 }
@@ -773,7 +801,7 @@ details[open] .pm::after {
   font-weight: 400;
   font-variation-settings: normal;
   font-size: clamp(15px, 1.4vw, 19px);
-  line-height: 1.3;
+  line-height: 1.45;
   text-align: center;
   cursor: pointer;
   transition:

@@ -5,7 +5,7 @@
       "key": "hero.rite",
       "section": "Hero",
       "what": "Line under the names",
-      "copy": "A rite in the Hill Country"
+      "copy": "A Rite in the Hill Country"
     },
     {
       "key": "hero.names",
@@ -17,13 +17,13 @@
       "key": "hero.date",
       "section": "Hero",
       "what": "Date and place under the names",
-      "copy": "Saturday, 12 December 2026 · Leander, Texas"
+      "copy": "Saturday, 12 December 2026 · Georgetown, Texas"
     },
     {
       "key": "hero.lede",
       "section": "Hero",
       "what": "Short welcome paragraph",
-      "copy": "Two artists, one long December afternoon, and a small circle of witnesses. You are invited to stand with them."
+      "copy": "Two artists, one long December afternoon, and a circle of witnesses for an intimate wedding. Please join us."
     },
     {
       "key": "hero.cta",
@@ -35,13 +35,13 @@
       "key": "hero.cta.sub",
       "section": "Hero",
       "what": "Small line under the button",
-      "copy": "Reply by 9 November"
+      "copy": "Send your address by 8 November"
     },
     {
       "key": "hero.caption",
       "section": "Hero",
       "what": "Caption for the couple photo",
-      "copy": "Plate III — The two of them, and the lilies"
+      "copy": ""
     },
     {
       "key": "story.title",
@@ -53,25 +53,25 @@
       "key": "story.quote",
       "section": "Story",
       "what": "One line in your own words (pull quote)",
-      "copy": "Established in 2009, we grew our love for seventeen years."
+      "copy": "Established in 2009, they grew their love over seventeen years."
     },
     {
       "key": "story.body",
       "section": "Story",
       "what": "How you met",
-      "copy": "They met in college and became best friends, the kind who trade records, sketchbooks, and unsolicited opinions. Somewhere between the music and the art, the thing they shared most turned out to be a refusal to be anyone but themselves. The first kiss came at The Showdown Saloon in San Marcos in 2009, and they have been together ever since. Seventeen years later, they are gathering the people they love to make it official and join two families. Dressed in black, naturally."
+      "copy": "The first kiss was at The Showdown Saloon in 2009, and they have been together ever since. Seventeen years later, they are gathering the people they love to make it official and join two families."
     },
     {
       "key": "story.plate1",
       "section": "Story",
       "what": "Caption for Megan's portrait",
-      "copy": "Plate I — Megan"
+      "copy": "Megan Elizabeth Reddick"
     },
     {
       "key": "story.plate2",
       "section": "Story",
       "what": "Caption for Ryan's portrait",
-      "copy": "Plate II — Ryan"
+      "copy": "Ryan Charles Erwin"
     },
     {
       "key": "day.title",
@@ -101,31 +101,31 @@
       "key": "day.1.about",
       "section": "The Day",
       "what": "Ceremony description",
-      "copy": "Find a seat; the rite begins at four. A small chapel, and a small circle of witnesses."
+      "copy": "The wedding begins at four."
     },
     {
       "key": "day.1.sched.1",
       "section": "The Day",
       "what": "Ceremony schedule item 1 (time · detail)",
-      "copy": "3:30–3:50 pm · Guests arrive; we’ll take photos as you come in"
+      "copy": "3:30–3:50 PM · Guest Arrival & Family Photos"
     },
     {
       "key": "day.1.sched.2",
       "section": "The Day",
       "what": "Ceremony schedule item 2 (time · detail)",
-      "copy": "4:00 pm · Everyone seated"
+      "copy": "4:00 PM · Everyone seated"
     },
     {
       "key": "day.1.sched.3",
       "section": "The Day",
       "what": "Ceremony schedule item 3 (time · detail)",
-      "copy": "4:05 pm · The ceremony, about forty minutes"
+      "copy": "4:05 PM · The Ceremony"
     },
     {
       "key": "day.1.sched.4",
       "section": "The Day",
       "what": "Ceremony schedule item 4 (time · detail)",
-      "copy": "4:45 pm · We leave the chapel together"
+      "copy": "4:45 PM · Leave the chapel"
     },
     {
       "key": "day.1.address",
@@ -149,7 +149,7 @@
       "key": "day.2.time",
       "section": "The Day",
       "what": "Reception time",
-      "copy": "5:30 pm"
+      "copy": "5:30 PM"
     },
     {
       "key": "day.2.place",
@@ -161,37 +161,37 @@
       "key": "day.2.about",
       "section": "The Day",
       "what": "Reception description",
-      "copy": "A buffet supper, a pour-your-own bar, cake, music, and the salt bowl. The sun sets at 5:31; bring a layer."
+      "copy": "A buffet supper, a pour-your-own bar, cake, music, and the salt bowl ceremony. The sun sets at 5:31 PM; bring a layer."
     },
     {
       "key": "day.2.sched.1",
       "section": "The Day",
       "what": "Reception schedule item 1 (time · detail)",
-      "copy": "5:30 pm · Guests arrive"
+      "copy": "5:30 PM · Guest Arrival"
     },
     {
       "key": "day.2.sched.2",
       "section": "The Day",
       "what": "Reception schedule item 2 (time · detail)",
-      "copy": "6:00 pm · Buffet dinner and the salt bowl"
+      "copy": "6:00 PM · Dinner & Salt Bowl Ceremony"
     },
     {
       "key": "day.2.sched.3",
       "section": "The Day",
       "what": "Reception schedule item 3 (time · detail)",
-      "copy": "6:45 pm · Cake cutting"
+      "copy": "6:45 PM · Cake Cutting"
     },
     {
       "key": "day.2.sched.4",
       "section": "The Day",
       "what": "Reception schedule item 4 (time · detail)",
-      "copy": "7:00 pm · Music and cocktails"
+      "copy": "7:00 PM · Music & Cocktails"
     },
     {
       "key": "day.2.sched.5",
       "section": "The Day",
       "what": "Reception schedule item 5 (time · detail)",
-      "copy": "8:00 pm · The party"
+      "copy": "8:00 PM · The Party"
     },
     {
       "key": "day.2.address",
@@ -215,7 +215,7 @@
       "key": "day.3.time",
       "section": "The Day",
       "what": "End time",
-      "copy": "9:30 pm"
+      "copy": "9:30 PM"
     },
     {
       "key": "day.3.place",
@@ -227,25 +227,25 @@
       "key": "day.3.about",
       "section": "The Day",
       "what": "End of night description",
-      "copy": "Go gently. Take the long way home."
+      "copy": "Safe travels."
     },
     {
       "key": "day.3.sched.1",
       "section": "The Day",
       "what": "End of night schedule item 1 (time · detail)",
-      "copy": "9:45 pm · Guests depart"
+      "copy": "9:30 PM · Say Goodbyes & Head Home"
     },
     {
       "key": "rite.title",
       "section": "The Rite",
       "what": "Salt bowl heading",
-      "copy": "An offering, an inheritance"
+      "copy": "Pass the Salt"
     },
     {
       "key": "rite.body",
       "section": "The Rite",
       "what": "Salt bowl explanation",
-      "copy": "Salt preserves. For as long as people have made promises, it has sealed them. At the reception, a bowl of salt will be waiting. Bring a small totem that speaks to you to add to it, and with it a piece of wisdom for the marriage: a blessing, a toast, a memory, a warning, a recipe. Once everyone has a plate, we’ll gather, and you’re invited to say yours aloud. The bowl stays out all night; add to it whenever you’re moved. It goes home with them and keeps."
+      "copy": "Salt preserves. For as long as people have made promises, it has sealed them. At the reception, a bowl of salt will be waiting. Guests are encouraged to bring a symbolic or sentimental small item to place in the salt bowl to bless the marriage. Guests will be invited to voice their blessing, toast, words of wisdom, or share memories to honor of these two individuals and this marriage. We will start after guests have an opportunity to get a plate of food and a beverage.  The bowl will be out for the entire reception and all are welcomed to add to it at any time."
     },
     {
       "key": "expect.title",
@@ -263,31 +263,31 @@
       "key": "expect.attire.body",
       "section": "What to Expect",
       "what": "Dress code (pick: 'remembered in' or 'buried in')",
-      "copy": "Come in your most fabulous black ensemble."
+      "copy": "Please come in your most fabulous black ensemble."
     },
     {
       "key": "expect.weather.title",
       "section": "What to Expect",
       "what": "Weather heading",
-      "copy": "December in the hills"
+      "copy": "December in the Texas hills"
     },
     {
       "key": "expect.weather.body",
       "section": "What to Expect",
       "what": "Weather note",
-      "copy": "Evenings fall into the low 40s, and much of the day is spent outdoors. Bring layers for comfort, ideally ones you won’t mind being photographed in."
+      "copy": "Evenings may fall into the low 40s, and much of the day is spent outdoors. Bring layers for comfort."
     },
     {
       "key": "expect.phones.title",
       "section": "What to Expect",
       "what": "Phones heading",
-      "copy": "Phones silenced during the rite"
+      "copy": "Silent phones during the ceremony"
     },
     {
       "key": "expect.phones.body",
       "section": "What to Expect",
       "what": "Unplugged ceremony note",
-      "copy": "We wish for everyone to be fully present during the ceremony. While we appreciate the gesture to document this day, we’ve got it taken care of with a wonderfully talented photographer."
+      "copy": "We wish for everyone to be fully present during the ceremony. While we appreciate the gesture to document this day, we’ve got it taken care of with a talented photographer."
     },
     {
       "key": "expect.small.title",
@@ -299,7 +299,7 @@
       "key": "expect.small.body",
       "section": "What to Expect",
       "what": "Guest count / plus-ones",
-      "copy": "About thirty witnesses. Plus-ones only if named on the invitation."
+      "copy": "This is an intimate wedding and due to venue limitations, plus-ones only if named on the invitation. Please be advised there will be a pool on the property without a life guard on duty. White horse and small goat will be roaming on the property, please be respectful to the animals."
     },
     {
       "key": "stay.title",
@@ -311,7 +311,7 @@
       "key": "stay.intro",
       "section": "Stay",
       "what": "Lodging intro",
-      "copy": "There are no room blocks; book wherever suits you. Some guests are staying at the Hilton Garden Inn in Cedar Park."
+      "copy": "There are no room blocks; book wherever suits you. Some guests are staying at the Hyatt Place Austin - Cedar Park."
     },
     {
       "key": "stay.6.name",
@@ -323,7 +323,7 @@
       "key": "stay.6.body",
       "section": "Stay",
       "what": "Hotel 6 note",
-      "copy": "Where some of the other guests are staying."
+      "copy": "Also in Cedar Park, a few minutes from the reception."
     },
     {
       "key": "stay.1.name",
@@ -338,18 +338,6 @@
       "copy": "On the San Gabriel River at Rivery Park, near the historic square. Closest to the chapel."
     },
     {
-      "key": "stay.2.name",
-      "section": "Stay",
-      "what": "Hotel 2",
-      "copy": "San Gabriel House"
-    },
-    {
-      "key": "stay.2.body",
-      "section": "Stay",
-      "what": "Hotel 2 note",
-      "copy": "A historic bed and breakfast in Georgetown, across from Southwestern University."
-    },
-    {
       "key": "stay.3.name",
       "section": "Stay",
       "what": "Hotel 3",
@@ -359,31 +347,7 @@
       "key": "stay.3.body",
       "section": "Stay",
       "what": "Hotel 3 note",
-      "copy": "Practical, and between the two venues."
-    },
-    {
-      "key": "stay.4.name",
-      "section": "Stay",
-      "what": "Hotel 4",
-      "copy": "Lone Star Court"
-    },
-    {
-      "key": "stay.4.body",
-      "section": "Stay",
-      "what": "Hotel 4 note",
-      "copy": "A motor-court hotel at The Domain in north Austin."
-    },
-    {
-      "key": "stay.5.name",
-      "section": "Stay",
-      "what": "Hotel 5",
-      "copy": "Hotel Viata"
-    },
-    {
-      "key": "stay.5.body",
-      "section": "Stay",
-      "what": "Hotel 5 note",
-      "copy": "Quiet and old-world in west Austin (formerly Hotel Granduca)."
+      "copy": "Where the other guests are staying. Practical, and between the two venues."
     },
     {
       "key": "stay.drive",
@@ -419,7 +383,7 @@
       "key": "faq.2.a",
       "section": "Questions",
       "what": "Answer 2",
-      "copy": "This is a small, intimate wedding, and the venues are small too: plus-ones only if they’re named on your invitation."
+      "copy": "This is a small intimate wedding, and the venues have a limited headcount for guests: plus-ones only if they’re named on your invitation."
     },
     {
       "key": "faq.3.q",
@@ -431,7 +395,7 @@
       "key": "faq.3.a",
       "section": "Questions",
       "what": "Answer 3",
-      "copy": "Your presence is the gift. If you insist, a note for the bowl."
+      "copy": "Gifts are welcomed but not expected. Guests are encouraged to bring a note or small item for the salt bowl."
     },
     {
       "key": "faq.4.q",
@@ -443,7 +407,7 @@
       "key": "faq.4.a",
       "section": "Questions",
       "what": "Answer 4",
-      "copy": "The chapel has twenty guest spaces inside the gate, with accessible spaces closer to the door. La Villa Rosa has free parking on site and on the street."
+      "copy": "The Lincoln Chapel and La Villa Rosa have free guest parking onsite. La Villa Rosa has free parking on site and on the street available."
     },
     {
       "key": "faq.5.q",
@@ -479,7 +443,7 @@
       "key": "faq.7.a",
       "section": "Questions",
       "what": "Answer 7",
-      "copy": "Casey Eickhoff, the Maid of Honor, can answer anything in our stead. Before the day, write to caseyisonit@gmail.com with “Meg + Ryan wedding” in the subject. On the day itself, email goes unchecked; Casey will share a number for texting with you directly."
+      "copy": "Casey Eickhoff, the Matron of Honor, can answer anything in our stead. Before the day, write to caseyisonit@gmail.com with “Meg + Ryan wedding” in the subject. On the day itself, email goes unchecked; Casey will share a number for texting with you directly."
     },
     {
       "key": "faq.8.q",
@@ -503,7 +467,49 @@
       "key": "faq.9.a",
       "section": "Questions",
       "what": "Answer 9",
-      "copy": "There’s a pool at La Villa Rosa with no lifeguard on duty, and a white horse and a small goat roam the property. Please be kind to the animals."
+      "copy": "There’s a pool at La Villa Rosa with no lifeguard on duty, and a white horse with a small goat roam the property. Please be kind to the animals."
+    },
+    {
+      "key": "rsvp.mode",
+      "section": "RSVP",
+      "what": "Which version of the reply form is live: contact (addresses only, with an optional reply) or full (the complete RSVP).",
+      "copy": "contact"
+    },
+    {
+      "key": "rsvp.contact.title",
+      "section": "RSVP",
+      "what": "RSVP heading during the address phase",
+      "copy": "Where should we send your invitation?"
+    },
+    {
+      "key": "rsvp.contact.deadline",
+      "section": "RSVP",
+      "what": "Deadline line during the address phase",
+      "copy": "Send us your address by the eighth of November so the invitation reaches you. You can reply any time before the twenty-second."
+    },
+    {
+      "key": "rsvp.contact.button",
+      "section": "RSVP",
+      "what": "Button during the address phase",
+      "copy": "Send my address"
+    },
+    {
+      "key": "rsvp.contact.toggle",
+      "section": "RSVP",
+      "what": "Label on the optional reply toggle",
+      "copy": "Already know if you’re coming?"
+    },
+    {
+      "key": "rsvp.button",
+      "section": "RSVP",
+      "what": "Button on the full reply form",
+      "copy": "Send my reply"
+    },
+    {
+      "key": "rsvp.done.contact",
+      "section": "RSVP",
+      "what": "Message after sending only an address",
+      "copy": "Your invitation is on its way. You can reply here any time before the twenty-second of November."
     },
     {
       "key": "rsvp.title",
@@ -515,25 +521,25 @@
       "key": "rsvp.deadline",
       "section": "RSVP",
       "what": "Deadline line",
-      "copy": "Reply by the ninth of November."
+      "copy": "Reply by the twenty-second of November."
     },
     {
       "key": "rsvp.accept",
       "section": "RSVP",
       "what": "Accept option",
-      "copy": "Joyfully accept"
+      "copy": "Accept"
     },
     {
       "key": "rsvp.decline",
       "section": "RSVP",
       "what": "Decline option",
-      "copy": "Regretfully decline"
+      "copy": "Decline"
     },
     {
       "key": "rsvp.done.accept",
       "section": "RSVP",
       "what": "Message after accepting",
-      "copy": "It is done. Your name is in the book. We'll see you at the chapel."
+      "copy": "Thank you for joining us. We'll see you at the chapel."
     },
     {
       "key": "rsvp.done.decline",
@@ -557,19 +563,19 @@
       "key": "std.text",
       "section": "Save the Date",
       "what": "Save the date card (review only)",
-      "copy": "Save the date · Megan Reddick & Ryan Erwin · 12 · 12 · 26 · Leander, Texas · A rite in the Hill Country · Kindly reply by November 9"
+      "copy": "Save the date · Megan Elizabeth Reddick & Ryan Charles Erwin · 12 · 12 · 26 · Georgetown, Texas · Their wedding; a rite in the Hill Country · Send your address by November 8"
     },
     {
       "key": "invite.front",
       "section": "Invitation",
       "what": "Printed invitation front (review only)",
-      "copy": "Together with a small circle of witnesses / Megan Reddick / & / Ryan Erwin / request your presence at the rite of their marriage / Saturday, the twelfth of December / two thousand twenty-six / at four o'clock in the afternoon / The Lincoln Chapel · Leander, Texas / Reception to follow at La Villa Rosa Estate / Dress in black / Kindly reply by the twenty-second of November"
+      "copy": "Megan Elizabeth Reddick / & / Ryan Charles Erwin / invite you to an afternoon celebration to witness their wedding / Saturday, the twelfth of December / two thousand twenty-six / at four o'clock in the afternoon / The Lincoln Chapel · Georgetown Texas / Reception to follow at La Villa Rosa Estate / Dress in black / Kindly reply by the twenty-second of November"
     },
     {
       "key": "invite.back",
       "section": "Invitation",
       "what": "Printed invitation back caption (review only)",
-      "copy": "Plate III — M & R, MMXXVI"
+      "copy": "Plate III — M & R, XII · XII · MMXXVI"
     }
   ]
 }

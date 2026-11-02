@@ -4,22 +4,28 @@ import { dietary } from '../data/facts';
 const siteKey = import.meta.env.TURNSTILE_SITE_KEY ?? process.env.TURNSTILE_SITE_KEY ?? '';
 const endpoint = import.meta.env.RSVP_ENDPOINT ?? process.env.RSVP_ENDPOINT ?? '';
 const counts = Array.from({ length: 11 }, (_, i) => i);
+const contact = (tp('rsvp.mode') ?? 'contact').trim().toLowerCase() !== 'full';
+const buttonLabel = tp(contact ? 'rsvp.contact.button' : 'rsvp.button') ?? 'Send my reply';
 ---
 
-<div class="rsvp-wrap" data-rsvp data-endpoint={endpoint}>
+<div class="rsvp-wrap" data-rsvp data-endpoint={endpoint} data-mode={contact ? 'contact' : 'full'}>
   <form class="rsvp-form" novalidate>
-    <fieldset class="choice" aria-describedby="response-err">
-      <legend>Your reply</legend>
-      <label class="choice-opt">
-        <input type="radio" name="response" value="accept" required />
-        <span set:html={t('rsvp.accept')} />
-      </label>
-      <label class="choice-opt">
-        <input type="radio" name="response" value="decline" />
-        <span set:html={t('rsvp.decline')} />
-      </label>
-      <p class="err" id="response-err" data-err-for="response"></p>
-    </fieldset>
+    {
+      !contact && (
+        <fieldset class="choice" data-choice aria-describedby="response-err">
+          <legend>Your reply</legend>
+          <label class="choice-opt">
+            <input type="radio" name="response" value="accept" />
+            <span set:html={t('rsvp.accept')} />
+          </label>
+          <label class="choice-opt">
+            <input type="radio" name="response" value="decline" />
+            <span set:html={t('rsvp.decline')} />
+          </label>
+          <p class="err" id="response-err" data-err-for="response" />
+        </fieldset>
+      )
+    }
 
     <div class="field">
       <label for="household">Household name</label>
@@ -29,8 +35,16 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
     </div>
 
     <div class="field">
-      <label for="names">Names of everyone replying</label>
-      <input id="names" name="names" maxlength="500" />
+      <label for="names">Names of everyone in your household</label>
+      <input id="names" name="names" maxlength="500" aria-describedby="names-err" />
+      <p class="err" id="names-err" data-err-for="names"></p>
+    </div>
+
+    <div class="field">
+      <label for="address">Mailing address {!contact && <span class="opt">for the printed invitation</span>}</label>
+      {contact && <p class="hint" id="address-hint">Where the printed invitation should go.</p>}
+      <textarea id="address" name="address" rows="3" autocomplete="street-address" maxlength="500" aria-describedby={contact ? 'address-hint address-err' : 'address-err'}></textarea>
+      <p class="err" id="address-err" data-err-for="address"></p>
     </div>
 
     <div class="row-2">
@@ -40,44 +54,119 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
         <p class="err" id="email-err" data-err-for="email"></p>
       </div>
       <div class="field">
-        <label for="phone">Phone <span class="opt">optional</span></label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" />
+        <label for="phone">Phone {!contact && <span class="opt">optional</span>}</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" aria-describedby="phone-err" />
+        <p class="err" id="phone-err" data-err-for="phone"></p>
       </div>
     </div>
 
-    <div class="field">
-      <label for="address">Mailing address <span class="opt">for the printed invitation</span></label>
-      <textarea id="address" name="address" rows="3" autocomplete="street-address" maxlength="500"></textarea>
-    </div>
-
-    <fieldset class="accept-only" data-accept-only>
-      <legend class="visually-hidden">Attending details</legend>
-      <div class="row-2">
-        <div class="field">
-          <label for="ceremony">At the ceremony</label>
-          <select id="ceremony" name="ceremony">{counts.map((n) => <option value={n} selected={n === 1}>{n === 1 ? '1 person' : `${n} people`}</option>)}</select>
-        </div>
-        <div class="field">
-          <label for="reception">At the reception</label>
-          <select id="reception" name="reception">{counts.map((n) => <option value={n} selected={n === 1}>{n === 1 ? '1 person' : `${n} people`}</option>)}</select>
-        </div>
-      </div>
-      <fieldset class="field diet">
-        <legend>Dietary needs</legend>
-        <div class="chips">
-          {
-            dietary.map((d) => (
-              <label class="chip">
-                <input type="checkbox" name="dietary" value={d} />
-                <span>{d}</span>
+    {
+      contact && (
+        <details class="early">
+          <summary>
+            <span set:html={t('rsvp.contact.toggle')} />
+            <span class="pm" aria-hidden="true" />
+          </summary>
+          <fieldset class="choice" data-choice aria-describedby="response-err">
+            <legend class="visually-hidden">Your reply</legend>
+            <label class="choice-opt">
+              <input type="radio" name="response" value="accept" />
+              <span set:html={t('rsvp.accept')} />
+            </label>
+            <label class="choice-opt">
+              <input type="radio" name="response" value="decline" />
+              <span set:html={t('rsvp.decline')} />
+            </label>
+            <p class="err" id="response-err" data-err-for="response" />
+          </fieldset>
+          <fieldset class="accept-only" data-accept-only hidden disabled>
+            <legend class="visually-hidden">Attending details</legend>
+            <div class="row-2">
+              <div class="field">
+                <label for="ceremony">At the ceremony</label>
+                <select id="ceremony" name="ceremony">
+                  {counts.map((n) => (
+                    <option value={n} selected={n === 1}>
+                      {n === 1 ? '1 person' : `${n} people`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div class="field">
+                <label for="reception">At the reception</label>
+                <select id="reception" name="reception">
+                  {counts.map((n) => (
+                    <option value={n} selected={n === 1}>
+                      {n === 1 ? '1 person' : `${n} people`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <fieldset class="field diet">
+              <legend>Dietary needs</legend>
+              <div class="chips">
+                {dietary.map((d) => (
+                  <label class="chip">
+                    <input type="checkbox" name="dietary" value={d} />
+                    <span>{d}</span>
+                  </label>
+                ))}
+              </div>
+              <label for="dietaryNotes" class="visually-hidden">
+                Dietary notes
               </label>
-            ))
-          }
-        </div>
-        <label for="dietaryNotes" class="visually-hidden">Dietary notes</label>
-        <input id="dietaryNotes" name="dietaryNotes" maxlength="500" placeholder="Anything we should tell the kitchen?" />
-      </fieldset>
-    </fieldset>
+              <input id="dietaryNotes" name="dietaryNotes" maxlength="500" placeholder="Anything we should tell the kitchen?" />
+            </fieldset>
+          </fieldset>
+        </details>
+      )
+    }
+
+    {
+      !contact && (
+        <fieldset class="accept-only" data-accept-only>
+          <legend class="visually-hidden">Attending details</legend>
+          <div class="row-2">
+            <div class="field">
+              <label for="ceremony">At the ceremony</label>
+              <select id="ceremony" name="ceremony">
+                {counts.map((n) => (
+                  <option value={n} selected={n === 1}>
+                    {n === 1 ? '1 person' : `${n} people`}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div class="field">
+              <label for="reception">At the reception</label>
+              <select id="reception" name="reception">
+                {counts.map((n) => (
+                  <option value={n} selected={n === 1}>
+                    {n === 1 ? '1 person' : `${n} people`}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <fieldset class="field diet">
+            <legend>Dietary needs</legend>
+            <div class="chips">
+              {dietary.map((d) => (
+                <label class="chip">
+                  <input type="checkbox" name="dietary" value={d} />
+                  <span>{d}</span>
+                </label>
+              ))}
+            </div>
+            <label for="dietaryNotes" class="visually-hidden">
+              Dietary notes
+            </label>
+            <input id="dietaryNotes" name="dietaryNotes" maxlength="500" placeholder="Anything we should tell the kitchen?" />
+          </fieldset>
+        </fieldset>
+      )
+    }
 
     <div class="field">
       <label for="note">A note for Megan &amp; Ryan <span class="opt">optional</span></label>
@@ -93,7 +182,7 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
 
     <p class="err form-err" data-form-err role="alert"></p>
     <button type="submit" class="btn">
-      <span class="btn-main">Send my reply</span>
+      <span class="btn-main">{buttonLabel}</span>
       <span class="btn-sub" set:html={t('hero.cta.sub')} />
     </button>
   </form>
@@ -105,6 +194,10 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
   <div class="rsvp-done" data-done="decline" hidden tabindex="-1">
     <p class="done-text" set:html={t('rsvp.done.decline')} />
   </div>
+  <div class="rsvp-done" data-done="none" hidden tabindex="-1">
+    <p class="done-mark" aria-hidden="true">✓</p>
+    <p class="done-text" set:html={t('rsvp.done.contact')} />
+  </div>
   <noscript><p class="noscript">The reply form needs JavaScript. Please turn it on, or reply to the person who sent you this link.</p></noscript>
   <template data-error-copy>{tp('rsvp.error') ?? 'Something went wrong and your reply didn’t reach us. Please try again in a minute.'}</template>
 </div>
@@ -115,44 +208,60 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
   declare const turnstile: { reset: (el?: Element) => void } | undefined;
   const root = document.querySelector<HTMLElement>('[data-rsvp]')!;
   const form = root.querySelector('form')!;
+  const contact = root.dataset.mode === 'contact';
   const acceptOnly = root.querySelector<HTMLFieldSetElement>('[data-accept-only]')!;
   const formErr = root.querySelector<HTMLElement>('[data-form-err]')!;
   const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+  const btnLabel = btn.querySelector('.btn-main')!.textContent ?? 'Send';
   const errorCopy = root.querySelector('template[data-error-copy]')!.innerHTML.trim();
+  const response = () => (form.elements.namedItem('response') as RadioNodeList | null)?.value ?? '';
 
   const syncResponse = () => {
-    const declining = (form.elements.namedItem('response') as RadioNodeList).value === 'decline';
-    acceptOnly.hidden = declining;
-    acceptOnly.disabled = declining;
+    const show = response() === 'accept' || (!contact && response() === '');
+    acceptOnly.hidden = !show;
+    acceptOnly.disabled = !show;
   };
+  syncResponse();
   form.addEventListener('change', (e) => {
     if ((e.target as HTMLInputElement).name === 'response') syncResponse();
   });
 
-  const messages: Record<string, string> = {
-    response: 'Choose whether you’ll be there.',
-    household: 'Add a household name so we can find you.',
-    email: 'Add an email we can reach you at, like name@example.com.',
-  };
+  const messages: Record<string, string> = contact
+    ? {
+        household: 'Add a household name so we can find you.',
+        names: 'Tell us who lives with you, so the envelope is addressed properly.',
+        address: 'Add the address the invitation should go to.',
+        email: 'Add an email we can reach you at, like name@example.com.',
+        phone: 'Add a phone number in case we need to reach you.',
+      }
+    : {
+        response: 'Choose whether you’ll be there.',
+        household: 'Add a household name so we can find you.',
+        email: 'Add an email we can reach you at, like name@example.com.',
+      };
+
   const setErr = (name: string, msg: string) => {
-    const p = root.querySelector<HTMLElement>(`[data-err-for="${name}"]`)!;
-    p.textContent = msg;
-    const el = form.querySelector(`[name="${name}"]`);
-    if (name === 'response') form.querySelector('.choice')!.toggleAttribute('data-invalid', !!msg);
-    else el?.setAttribute('aria-invalid', String(!!msg));
+    const p = root.querySelector<HTMLElement>(`[data-err-for="${name}"]`);
+    if (p) p.textContent = msg;
+    if (name === 'response') root.querySelector('[data-choice]')?.toggleAttribute('data-invalid', !!msg);
+    else form.querySelector(`[name="${name}"]`)?.setAttribute('aria-invalid', String(!!msg));
   };
+  const val = (fd: FormData, k: string) => String(fd.get(k) ?? '').trim();
   const validate = () => {
     const fd = new FormData(form);
     const bad: string[] = [];
-    if (!fd.get('response')) bad.push('response');
-    if (!String(fd.get('household') ?? '').trim()) bad.push('household');
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(fd.get('email') ?? '').trim())) bad.push('email');
+    if (!contact && !fd.get('response')) bad.push('response');
+    if (!val(fd, 'household')) bad.push('household');
+    if (contact && !val(fd, 'names')) bad.push('names');
+    if (contact && val(fd, 'address').length < 8) bad.push('address');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val(fd, 'email'))) bad.push('email');
+    if (contact && val(fd, 'phone').replace(/\D/g, '').length < 10) bad.push('phone');
     Object.keys(messages).forEach((k) => setErr(k, bad.includes(k) ? messages[k] : ''));
     return bad;
   };
   form.addEventListener('input', (e) => {
     const name = (e.target as HTMLInputElement).name;
-    if (name in messages && root.querySelector(`[data-err-for="${name}"]`)!.textContent) validate();
+    if (name in messages && root.querySelector(`[data-err-for="${name}"]`)?.textContent) validate();
   });
 
   form.addEventListener('submit', async (e) => {
@@ -160,7 +269,9 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
     formErr.textContent = '';
     const bad = validate();
     if (bad.length) {
-      (form.querySelector(`[name="${bad[0]}"]`) as HTMLElement).focus();
+      const first = form.querySelector(`[name="${bad[0]}"]`) as HTMLElement | null;
+      first?.closest('details')?.setAttribute('open', '');
+      first?.focus();
       return;
     }
     const fd = new FormData(form);
@@ -169,9 +280,11 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
       formErr.textContent = 'One moment: the check above is still confirming you’re a person. Try again in a few seconds.';
       return;
     }
+    const reply = response();
     const payload = {
       token,
-      response: fd.get('response'),
+      mode: contact ? 'contact' : 'full',
+      response: reply,
       household: fd.get('household'),
       names: fd.get('names'),
       email: fd.get('email'),
@@ -191,14 +304,14 @@ const counts = Array.from({ length: 11 }, (_, i) => i);
       const json = await res.json().catch(() => ({ ok: false }));
       if (!json.ok) throw new Error(json.error ?? 'failed');
       form.hidden = true;
-      const done = root.querySelector<HTMLElement>(`[data-done="${payload.response}"]`)!;
+      const done = root.querySelector<HTMLElement>(`[data-done="${reply || 'none'}"]`)!;
       done.hidden = false;
       done.focus();
     } catch {
       formErr.textContent = errorCopy;
       if (typeof turnstile !== 'undefined') turnstile.reset();
       btn.disabled = false;
-      btn.querySelector('.btn-main')!.textContent = 'Send my reply';
+      btn.querySelector('.btn-main')!.textContent = btnLabel;
     }
   });
 </script>

@@ -40,6 +40,7 @@ const day = [1, 2, 3]
     map: n === 1 ? venues.chapel : n === 2 ? venues.reception : '',
   }));
 const shownStays = stays.filter((s) => t(`stay.${s.n}.name`));
+const contactPhase = (tp('rsvp.mode') ?? 'contact').trim().toLowerCase() !== 'full';
 const expect = ['attire', 'weather', 'phones', 'small'];
 const faqs = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter((n) => t(`faq.${n}.q`) && t(`faq.${n}.a`));
 
@@ -247,8 +248,8 @@ FORM: Direction D (A1 approved).
 
       <!-- RSVP -->
       <section id="attend" class="section attend" aria-labelledby="attend-h">
-        <h2 id="attend-h" class="h2 big" set:html={t('rsvp.title')} />
-        <p class="sub" set:html={t('rsvp.deadline')} />
+        <h2 id="attend-h" class="h2 big" set:html={t(contactPhase ? 'rsvp.contact.title' : 'rsvp.title')} />
+        <p class="sub" set:html={t(contactPhase ? 'rsvp.contact.deadline' : 'rsvp.deadline')} />
         <RsvpForm />
       </section>
     </main>
