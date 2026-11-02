@@ -1,0 +1,98 @@
+/* Shared styling for the printable and sendable cards.
+   Mirrors the site's tokens so the pieces read as one object. */
+@font-face {
+  font-family: 'Boldonse';
+  src: url('../node_modules/@fontsource/boldonse/files/boldonse-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../node_modules/@fontsource/hanken-grotesk/files/hanken-grotesk-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../node_modules/@fontsource/hanken-grotesk/files/hanken-grotesk-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+
+:root {
+  --color-ink: #131211;
+  --color-bone: #ece8e0;
+  --color-smoke: #6b6862;
+  --color-ash: #8e8b85;
+  --color-mist: #c8c4bb;
+  --f-display: 'Boldonse', sans-serif;
+  --f-ui: 'Hanken Grotesk', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--f-ui);
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+}
+
+img {
+  display: block;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+/* Same tintype grain the site wears. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.frame {
+  position: absolute;
+  inset: var(--frame-inset, 28px);
+  border: 3px double var(--color-mist);
+  pointer-events: none;
+}
+
+.label {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-ash);
+}
+
+.names {
+  font-family: var(--f-display);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.numerals {
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  color: var(--color-bone);
+}
+
+.rule {
+  width: 1px;
+  background: var(--color-mist);
+  opacity: 0.5;
+  margin-inline: auto;
+}

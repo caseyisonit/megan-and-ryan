@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Megan &amp; Ryan — link preview</title>
+    <link rel="stylesheet" href="card.css" />
+    <style>
+      body { width: 1200px; }
+      .card {
+        width: 1200px;
+        height: 630px;
+        --frame-inset: 18px;
+        display: grid;
+        grid-template-columns: 404px 1fr;
+        gap: 56px;
+        padding: 52px 64px 52px 56px;
+        align-items: center;
+      }
+      .plate img { width: 404px; height: auto; }
+      .label { font-size: 17px; }
+      .names { margin-top: 20px; font-size: 68px; }
+      .numerals { margin-top: 26px; font-size: 23px; }
+      .where {
+        margin-top: 16px;
+        font-size: 21px;
+        line-height: 1.55;
+        color: var(--color-mist);
+      }
+      .ask {
+        margin-top: 30px;
+        padding-top: 22px;
+        border-top: 1px solid rgb(200 196 187 / 0.4);
+        font-size: 19px;
+        color: var(--color-mist);
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="frame"></div>
+      <figure class="plate">
+        <img src="../src/assets/plates/couple-standing.jpg" alt="Megan and Ryan, wet plate portrait" />
+      </figure>
+      <div>
+        <p class="label">Save the date</p>
+        <h1 class="names">Megan &amp; Ryan</h1>
+        <p class="numerals">XII · XII · MMXXVI</p>
+        <p class="where">Saturday, December 12<br />Georgetown, Texas</p>
+        <p class="ask">A rite in the Hill Country · Send us your address by November 8 · RSVP by November 22</p>
+      </div>
+    </div>
+  </body>
+</html>

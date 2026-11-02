@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Megan &amp; Ryan — Save the date</title>
+    <link rel="stylesheet" href="card.css" />
+    <style>
+      body { width: 1080px; }
+      .card {
+        width: 1080px;
+        height: 1920px;
+        --frame-inset: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 96px 92px 100px;
+      }
+      .label { font-size: 24px; }
+      .plate {
+        margin-top: 54px;
+        width: 780px;
+      }
+      .plate img { width: 100%; height: auto; }
+      .plate figcaption {
+        margin-top: 22px;
+        font-size: 18px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--color-ash);
+      }
+      .names {
+        margin-top: 58px;
+        font-size: 84px;
+      }
+      .rule { height: 64px; margin-top: 36px; opacity: 0.7; }
+      .numerals { margin-top: 34px; font-size: 34px; }
+      .where {
+        margin-top: 26px;
+        font-size: 29px;
+        line-height: 1.6;
+        color: var(--color-mist);
+      }
+      .foot { margin-top: auto; }
+      .foot::before {
+        content: '';
+        display: block;
+        width: 132px;
+        height: 1px;
+        margin: 0 auto 36px;
+        background: var(--color-mist);
+        opacity: 0.45;
+      }
+      .foot .ask {
+        font-size: 26px;
+        letter-spacing: 0.02em;
+        color: var(--color-bone);
+      }
+      .foot .rsvp {
+        margin-top: 10px;
+        font-size: 26px;
+        letter-spacing: 0.02em;
+        color: var(--color-bone);
+      }
+      .foot .url {
+        margin-top: 16px;
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-mist);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="frame"></div>
+      <p class="label">Save the date</p>
+
+      <figure class="plate">
+        <img src="../src/assets/plates/couple-standing.jpg" alt="Megan and Ryan, wet plate portrait" />
+        <figcaption>A rite in the Hill Country</figcaption>
+      </figure>
+
+      <h1 class="names">Megan &amp; Ryan</h1>
+
+      <div class="rule"></div>
+
+      <p class="numerals">XII · XII · MMXXVI</p>
+      <p class="where">Saturday, December 12<br />Georgetown, Texas</p>
+
+      <div class="foot">
+        <p class="ask">Send us your address by November 8.</p>
+        <p class="rsvp">RSVP by November 22.</p>
+        <p class="url">caseyisonit.github.io/megan-and-ryan</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,6 +11,8 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(`${import.meta.env.BASE_URL.replace(/\/+$/, '')}/og.jpg`, Astro.site).href;
 ---
 
 <!doctype html>
@@ -26,6 +28,12 @@ const { title, description } = Astro.props;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Megan and Ryan, a wet plate portrait, with the date XII · XII · MMXXVI" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
   </head>
   <body class="grain">
