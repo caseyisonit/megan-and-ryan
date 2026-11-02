@@ -1,5 +1,4 @@
 ---
-import '@fontsource-variable/imbue/opsz';
 import '@fontsource/boldonse/400.css';
 import '@fontsource/hanken-grotesk/400.css';
 import '@fontsource/hanken-grotesk/400-italic.css';
@@ -28,12 +27,8 @@ const { title, description } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
-    <!-- Display face trial: Boldonse by default; ?font=imbue shows the previous face. -->
-    <script is:inline>
-      if (new URLSearchParams(location.search).get('font') === 'imbue') document.documentElement.dataset.display = 'imbue';
-    </script>
   </head>
-  <body class="grain is-dark">
+  <body class="grain">
     <slot />
     <script>
       import '../scripts/site';

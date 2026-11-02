@@ -7,12 +7,12 @@
 web
 
 ## Users
-- **Guests (~30 households):** close friends and family of Megan Reddick & Ryan Erwin. Most arrive from a text or email on their phone (save the date link or QR on the printed invitation). Job: understand when and where, what to wear, and reply once per household before Sun Nov 22, 2026.
+- **Guests (~30 households):** close friends and family of Megan Reddick & Ryan Erwin. Most arrive from a text or email on their phone (save the date link or QR on the printed invitation). Job: understand when and where, what to wear, and reply once per household by Mon Nov 9, 2026 (moved from Nov 22 so printed invitations can go out by Nov 12).
 - **Megan & Ryan:** both artists with a very high bar for style. They review and edit every word in Notion; they never touch code.
 - **Casey (builder, maid-of-honor-level friend):** runs the build and the sends; needs head counts and mailing addresses in Notion.
 
 ## Product Purpose
-One responsive page, a digital save the date, and a printed 5×7 invitation that share one design system. Success: every household replies by Nov 22, the caterer count is right, and the couple feel the site is *theirs*: something they'd have made.
+One responsive page, a digital save the date, and a printed 5×7 invitation that share one design system. Success: every household replies by Nov 9, the caterer count is right, and the couple feel the site is *theirs*: something they'd have made.
 
 ## Positioning
 Not a wedding template. A small, private rite with a cult-on-purpose tone: ritual, numbered plates, witnesses, a salt bowl. The couple's own wet-plate collodion portraits are the visual source.
@@ -33,7 +33,7 @@ Not a wedding template. A small, private rite with a cult-on-purpose tone: ritua
 - Dress code changed to black only (couple, Oct 31). Palette: off-black `#131211` + off-white `#ECE8E0` base; pure `#000`/`#FFF` only as accents. No color.
 - Mood: minimalist, surreal (Dalí), timeless, cult on purpose. Never campy, no Halloween kitsch.
 - Voice: hushed, ritual, wry, a little uncanny; ceremonial language with warmth underneath.
-- Phrases to keep: "A rite in the Hill Country", "witnesses", "Plate I —" captions, "Light moves; so do we", "Dress in the dark and the pale", "Questions, answered quietly", "will you stand with us?", "Joyfully accept / Regretfully decline".
+- Phrases to keep: "A rite in the Hill Country", "witnesses", "Plate I —" captions, "Dress in the dark and the pale", "Questions, answered quietly", "will you stand with us?", "Joyfully accept / Regretfully decline".
 - The Adobe Express draft is a starting point to improve on, not the design.
 
 ## Evidence on Hand

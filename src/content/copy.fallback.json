@@ -35,7 +35,7 @@
       "key": "hero.cta.sub",
       "section": "Hero",
       "what": "Small line under the button",
-      "copy": "Reply by 22 November"
+      "copy": "Reply by 9 November"
     },
     {
       "key": "hero.caption",
@@ -76,8 +76,8 @@
     {
       "key": "day.title",
       "section": "The Day",
-      "what": "Schedule heading",
-      "copy": "Light moves; so do we"
+      "what": "Schedule heading (the date in Roman numerals)",
+      "copy": "XII · XII · MMXXVI"
     },
     {
       "key": "day.1.title",
@@ -515,7 +515,7 @@
       "key": "rsvp.deadline",
       "section": "RSVP",
       "what": "Deadline line",
-      "copy": "Reply by the twenty-second of November."
+      "copy": "Reply by the ninth of November."
     },
     {
       "key": "rsvp.accept",
@@ -557,7 +557,7 @@
       "key": "std.text",
       "section": "Save the Date",
       "what": "Save the date card (review only)",
-      "copy": "Save the date · Megan Reddick & Ryan Erwin · 12 · 12 · 26 · Leander, Texas · A rite in the Hill Country · Kindly reply by November 22"
+      "copy": "Save the date · Megan Reddick & Ryan Erwin · 12 · 12 · 26 · Leander, Texas · A rite in the Hill Country · Kindly reply by November 9"
     },
     {
       "key": "invite.front",

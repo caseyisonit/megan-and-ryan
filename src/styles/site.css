@@ -3,13 +3,13 @@
   --f-display: 'Boldonse', sans-serif;
   --f-voice: 'Hanken Grotesk', sans-serif;
   --f-ui: 'Hanken Grotesk', sans-serif;
-  --display: 600 normal 1em / 0.9 var(--f-display);
   --rule: 1px solid rgb(200 196 187 / 0.4);
   --col: min(1080px, 100%);
 }
 
 html {
   scroll-padding-top: 80px;
+  font-synthesis: none;
 }
 html.menu-open {
   overflow: hidden;
@@ -26,7 +26,7 @@ body {
   color: var(--color-ink);
 }
 
-/* Draft copy (dev only): bracketed questions for the couple */
+/* Unanswered ⟨bracket⟩ copy, shown only in dev */
 mark.gap {
   background: none;
   color: var(--color-ash);
@@ -55,15 +55,15 @@ mark.gap {
 /* Shared type */
 .h2 {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(48px, 7vw, 120px);
-  line-height: 0.92;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(30px, 4.2vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .h2.big {
-  font-size: clamp(56px, 9vw, 168px);
+  font-size: clamp(32px, 5vw, 84px);
 }
 .label-sm,
 .kicker-date,
@@ -133,11 +133,11 @@ mark.gap {
 }
 .mark {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: 28px;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: 18px;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   text-transform: none;
   color: var(--color-bone);
 }
@@ -173,11 +173,12 @@ mark.gap {
 }
 .menu a {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(40px, 11vw, 64px);
-  line-height: 1.05;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(24px, 6vw, 40px);
+  line-height: 1.3;
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 /* ---------- Hero ---------- */
@@ -193,15 +194,15 @@ mark.gap {
 .stage {
   container-type: inline-size;
   position: relative;
-  width: min(100%, 1120px, calc((100svh - 130px) / 1.02));
+  width: min(100%, 1120px, calc((100svh - 170px) / 1.02));
 }
 .eye {
   position: relative;
   display: block;
   width: 100%;
-  margin-block: 17cqw;
-  /* The eye takes the hero photo's exact proportions (couple-edited.jpg, 2170 × 1200). */
-  aspect-ratio: 2170 / 1200;
+  margin-block: 12cqw;
+  /* The eye takes the hero photo's exact proportions (couple-edited.jpg, 2030 × 1125). */
+  aspect-ratio: 2030 / 1125;
   overflow: hidden;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 112' preserveAspectRatio='none'%3E%3Cpath d='M0 56 C 50 -18, 150 -18, 200 56 C 150 130, 50 130, 0 56 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 112' preserveAspectRatio='none'%3E%3Cpath d='M0 56 C 50 -18, 150 -18, 200 56 C 150 130, 50 130, 0 56 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
@@ -234,11 +235,11 @@ mark.gap {
   flex-direction: column;
   justify-content: space-between;
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: 30cqw;
-  line-height: 0.8;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: 15.5cqw;
+  line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--color-bone);
   mix-blend-mode: difference;
   pointer-events: none;
@@ -253,13 +254,13 @@ mark.gap {
   padding-right: 1cqw;
 }
 .rite-line {
-  margin-top: clamp(28px, 3vw, 44px);
+  margin-top: clamp(40px, 4.5vw, 72px);
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(34px, 3vw + 14px, 60px);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(20px, 1.6vw + 10px, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 .date {
   margin-top: 18px;
@@ -379,10 +380,11 @@ mark.gap {
 .quote {
   margin: 0;
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(30px, 2.6vw, 44px);
-  line-height: 1.05;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(18px, 1.5vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 .story-text p {
   color: var(--color-mist);
@@ -414,10 +416,11 @@ mark.gap {
 }
 .roman {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(120px, 14vw, 220px);
-  line-height: 0.8;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(64px, 7vw, 116px);
+  line-height: 1;
+  letter-spacing: -0.01em;
 }
 .clock {
   margin-top: 18px;
@@ -435,11 +438,11 @@ mark.gap {
 .place {
   margin-top: 8px;
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(36px, 3.4vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(20px, 1.8vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 .line {
   margin-top: 14px;
@@ -534,9 +537,6 @@ address a,
 .stays .ext {
   align-self: center;
 }
-.stays .place {
-  font-size: clamp(30px, 2.8vw, 44px);
-}
 
 /* Rite */
 .salt {
@@ -561,8 +561,8 @@ address a,
   }
 }
 .salt-title {
-  max-width: 7.5em;
-  font-size: clamp(40px, 5vw, 72px);
+  max-width: 9.5em;
+  font-size: clamp(24px, 2.6vw, 38px);
 }
 
 /* Expect */
@@ -582,11 +582,11 @@ address a,
 }
 .expect-grid dt {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(30px, 2.6vw, 42px);
-  line-height: 1.02;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(17px, 1.3vw, 22px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 .expect-grid dd {
   margin: 14px auto 0;
@@ -614,10 +614,11 @@ address a,
   padding: 26px 0;
   cursor: pointer;
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(26px, 2.2vw, 36px);
-  line-height: 1.1;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(17px, 1.3vw, 22px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 .faq-list summary::-webkit-details-marker {
   display: none;
@@ -769,16 +770,17 @@ details[open] .pm::after {
   padding: 16px;
   border: 1px solid var(--color-ash);
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(15px, 1.4vw, 19px);
+  line-height: 1.3;
   text-align: center;
   cursor: pointer;
   transition:
     background 0.3s var(--ease-rite),
     color 0.3s var(--ease-rite),
     border-color 0.3s;
+  letter-spacing: -0.01em;
 }
 .choice-opt input {
   position: absolute;
@@ -878,11 +880,12 @@ details[open] .pm::after {
 .done-text {
   margin-top: 12px;
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(34px, 3.6vw, 56px);
-  line-height: 1.05;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.2;
   text-wrap: balance;
+  letter-spacing: -0.01em;
 }
 .noscript {
   font-style: italic;
@@ -897,11 +900,11 @@ details[open] .pm::after {
 }
 .foot-names {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 100;
-  font-size: clamp(64px, 11vw, 200px);
-  line-height: 0.85;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: clamp(36px, 6vw, 104px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 .foot-names i {
   font-style: normal;
@@ -1021,78 +1024,4 @@ details[open] .pm::after {
   .ring {
     animation: none;
   }
-}
-
-/* ---------- Display face trial: Boldonse (ultra-wide, single weight) ---------- */
-html:not([data-display='imbue']) {
-  font-synthesis: none;
-}
-html:not([data-display='imbue']) :is(.h2, .names, .rite-line, .roman, .place, .quote, .mark, .menu a, .faq-list summary, .expect-grid dt, .choice-opt, .done-text, .foot-names) {
-  font-weight: 400;
-  font-variation-settings: normal;
-  letter-spacing: -0.01em;
-}
-html:not([data-display='imbue']) .names {
-  font-size: 15.5cqw;
-  line-height: 1;
-}
-html:not([data-display='imbue']) .eye {
-  margin-block: 12cqw;
-}
-html:not([data-display='imbue']) .stage {
-  width: min(100%, 1120px, calc((100svh - 170px) / 1.02));
-}
-html:not([data-display='imbue']) .h2 {
-  font-size: clamp(30px, 4.2vw, 68px);
-  line-height: 1.12;
-}
-html:not([data-display='imbue']) .h2.big {
-  font-size: clamp(32px, 5vw, 84px);
-}
-html:not([data-display='imbue']) .salt-title {
-  max-width: 9.5em;
-  font-size: clamp(24px, 2.6vw, 38px);
-}
-html:not([data-display='imbue']) .rite-line {
-  margin-top: clamp(40px, 4.5vw, 72px);
-  font-size: clamp(20px, 1.6vw + 10px, 34px);
-  line-height: 1.15;
-}
-html:not([data-display='imbue']) .roman {
-  font-size: clamp(64px, 7vw, 116px);
-  line-height: 1;
-}
-html:not([data-display='imbue']) .place {
-  font-size: clamp(20px, 1.8vw, 30px);
-  line-height: 1.15;
-}
-html:not([data-display='imbue']) .quote {
-  font-size: clamp(18px, 1.5vw, 26px);
-  line-height: 1.25;
-}
-html:not([data-display='imbue']) .mark {
-  font-size: 18px;
-}
-html:not([data-display='imbue']) .menu a {
-  font-size: clamp(24px, 6vw, 40px);
-  line-height: 1.3;
-}
-html:not([data-display='imbue']) :is(.faq-list summary, .expect-grid dt) {
-  font-size: clamp(17px, 1.3vw, 22px);
-  line-height: 1.3;
-}
-html:not([data-display='imbue']) .choice-opt {
-  font-size: clamp(15px, 1.4vw, 19px);
-  line-height: 1.3;
-}
-html:not([data-display='imbue']) .done-text {
-  font-size: clamp(22px, 2.2vw, 34px);
-  line-height: 1.2;
-}
-html:not([data-display='imbue']) .foot-names {
-  font-size: clamp(36px, 6vw, 104px);
-  line-height: 1.05;
-}
-html[data-display='imbue'] {
-  --f-display: 'Imbue Variable', serif;
 }
